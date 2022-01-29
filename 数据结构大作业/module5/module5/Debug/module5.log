@@ -1,0 +1,5 @@
+﻿  module5.cpp
+c:\users\njuwhl2019hp\数据结构大作业\module5\module5\module5.cpp(74): warning C4244: “初始化”: 从“__int64”转换到“int”，可能丢失数据
+c:\users\njuwhl2019hp\数据结构大作业\module5\module5\module5.cpp(80): warning C4244: “=”: 从“__int64”转换到“int”，可能丢失数据
+c:\users\njuwhl2019hp\数据结构大作业\module5\module5\module5.cpp(81): warning C4244: “=”: 从“__int64”转换到“int”，可能丢失数据
+  module5.vcxproj -> C:\Users\njuwhl2019hp\数据结构大作业\module5\Debug\module5.exe

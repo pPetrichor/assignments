@@ -1,0 +1,5 @@
+﻿  module4.cpp
+c:\users\njuwhl2019hp\数据结构大作业\module4\module4\module4.cpp(29): warning C4018: “<”: 有符号/无符号不匹配
+c:\users\njuwhl2019hp\数据结构大作业\module4\module4\module4.cpp(38): warning C4018: “<”: 有符号/无符号不匹配
+c:\users\njuwhl2019hp\数据结构大作业\module4\module4\module4.cpp(51): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+  module4.vcxproj -> C:\Users\njuwhl2019hp\数据结构大作业\module4\Debug\module4.exe

@@ -1,0 +1,12 @@
+﻿  project.cpp
+c:\users\njuwhl2019hp\数据结构大作业\project\project\project.cpp(193): warning C4018: “<”: 有符号/无符号不匹配
+c:\users\njuwhl2019hp\数据结构大作业\project\project\project.cpp(274): warning C4018: “<”: 有符号/无符号不匹配
+c:\users\njuwhl2019hp\数据结构大作业\project\project\project.cpp(283): warning C4018: “<”: 有符号/无符号不匹配
+c:\users\njuwhl2019hp\数据结构大作业\project\project\project.cpp(326): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“__int64”
+  c:\users\njuwhl2019hp\数据结构大作业\project\project\project.cpp(326): note: 请考虑在格式字符串中使用“%lld”
+  c:\users\njuwhl2019hp\数据结构大作业\project\project\project.cpp(326): note: 请考虑在格式字符串中使用“%I64d”
+c:\users\njuwhl2019hp\数据结构大作业\project\project\project.cpp(426): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+c:\users\njuwhl2019hp\数据结构大作业\project\project\project.cpp(491): warning C4244: “初始化”: 从“__int64”转换到“int”，可能丢失数据
+c:\users\njuwhl2019hp\数据结构大作业\project\project\project.cpp(497): warning C4244: “=”: 从“__int64”转换到“int”，可能丢失数据
+c:\users\njuwhl2019hp\数据结构大作业\project\project\project.cpp(498): warning C4244: “=”: 从“__int64”转换到“int”，可能丢失数据
+  project.vcxproj -> C:\Users\njuwhl2019hp\数据结构大作业\project\Debug\project.exe

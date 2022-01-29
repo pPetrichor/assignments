@@ -1,0 +1,5 @@
+﻿  module1.cpp
+c:\users\njuwhl2019hp\数据结构大作业\module1\module1\module1.cpp(128): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“__int64”
+  c:\users\njuwhl2019hp\数据结构大作业\module1\module1\module1.cpp(128): note: 请考虑在格式字符串中使用“%lld”
+  c:\users\njuwhl2019hp\数据结构大作业\module1\module1\module1.cpp(128): note: 请考虑在格式字符串中使用“%I64d”
+  module1.vcxproj -> C:\Users\njuwhl2019hp\数据结构大作业\module1\Debug\module1.exe
