@@ -1,0 +1,54 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/quartus/mydesign/lab02/simulation/modelsim
+vlab02
+!s110 1568717626
+!i10b 1
+!s100 UUZa2j;Oe?Yehb=5CWlWb1
+Imk41khTQf3=DF=RJzY<lT0
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1568211169
+8D:/quartus/mydesign/lab02/lab02.v
+FD:/quartus/mydesign/lab02/lab02.v
+L0 1
+Z2 OV;L;10.5b;63
+r1
+!s85 0
+31
+!s108 1568717626.000000
+!s107 D:/quartus/mydesign/lab02/lab02.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/quartus/mydesign/lab02|D:/quartus/mydesign/lab02/lab02.v|
+!i113 1
+Z3 o-vlog01compat -work work
+!s92 -vlog01compat -work work +incdir+D:/quartus/mydesign/lab02
+Z4 tCvgOpt 0
+vlab02_vlg_tst
+!s110 1568717627
+!i10b 1
+!s100 jnIm72?UnHB1UC888YTCe0
+ITSDaecGU@bS09YfX0;Xb]2
+R1
+R0
+w1568717475
+8D:/quartus/mydesign/lab02/simulation/modelsim/lab02.vt
+FD:/quartus/mydesign/lab02/simulation/modelsim/lab02.vt
+L0 28
+R2
+r1
+!s85 0
+31
+!s108 1568717627.000000
+!s107 D:/quartus/mydesign/lab02/simulation/modelsim/lab02.vt|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/quartus/mydesign/lab02/simulation/modelsim|D:/quartus/mydesign/lab02/simulation/modelsim/lab02.vt|
+!i113 1
+R3
+!s92 -vlog01compat -work work +incdir+D:/quartus/mydesign/lab02/simulation/modelsim
+R4

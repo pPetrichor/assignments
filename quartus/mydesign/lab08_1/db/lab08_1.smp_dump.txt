@@ -1,0 +1,6 @@
+
+State Machine - |lab08_1|higher:HIGH|state
+Name state.00 state.B state.A 
+state.00 0 0 0 
+state.A 1 0 1 
+state.B 1 1 0 

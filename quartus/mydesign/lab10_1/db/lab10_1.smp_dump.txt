@@ -1,0 +1,18 @@
+
+State Machine - |lab10_1|higher:HIGH|state
+Name state.G state.F state.E state.D state.C state.B state.A state.0000 
+state.0000 0 0 0 0 0 0 0 0 
+state.A 0 0 0 0 0 0 1 1 
+state.B 0 0 0 0 0 1 0 1 
+state.C 0 0 0 0 1 0 0 1 
+state.D 0 0 0 1 0 0 0 1 
+state.E 0 0 1 0 0 0 0 1 
+state.F 0 1 0 0 0 0 0 1 
+state.G 1 0 0 0 0 0 0 1 
+
+State Machine - |lab10_1|I2C_Audio_Config:myconfig|mi2c_state
+Name mi2c_state.11 mi2c_state.10 mi2c_state.01 mi2c_state.00 
+mi2c_state.00 0 0 0 0 
+mi2c_state.01 0 0 1 1 
+mi2c_state.10 0 1 0 1 
+mi2c_state.11 1 0 0 1 

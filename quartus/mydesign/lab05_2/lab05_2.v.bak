@@ -1,0 +1,126 @@
+module lab05_2(clk_50,set_time,set_botton,led,stop_alarm,second_counter)//只调节分钟时间
+	input clk_50,set_time,set_botton,stop_alarm,second_counter;
+	reg clk_s,clk_m,clk_h,clk_sc;
+	output reg led;
+	output reg[6:0]second_l;reg[3:0]second_ones;
+	output reg[6:0]second_h;reg[3:0]second_tens;
+	output reg[6:0]minute_l;reg[3:0]minute_ones;
+	output reg[6:0]minute_h;reg[3:0]minute_tens;
+	output reg[6:0]hour_l;reg[3:0]hour_ones;
+	output reg[6:0]hour_h;reg[3:0]hour_tens;
+	reg [6:0]second;reg[6:0]minute;reg[6:0]hour;
+	reg [25:0]count_clk;
+		always @(posedge clk_50)
+		begin
+			if(count_clk==25000000)
+				begin
+				count_clk =0;
+				clk_s = ~clk_s;
+				end
+			else
+				count_clk = count_clk+1;
+		end
+		always @(posedge clk_s)
+		begin
+			if(second == 59)
+				begin
+				second =0;
+				clk_m = ~clk_m;
+				end
+			else
+				second = second+1;
+		end
+		always @(posedge clk_m)
+		begin
+			if(minute == 59)
+				begin
+				minute =0;
+				clk_h = ~clk_h;
+				end
+			else
+				minute = minute+1;
+		end
+		always @(posedge clk_s)
+		begin
+			second_ones = second % 10;
+			second_tens = (second - second_ones) / 10;
+			case(second_ones)
+				0: second_l = 7'b1000000;
+				1: second_l = 7'b1111001;
+				2: second_l = 7'b0100100;
+				3: second_l = 7'b0110000;
+				4: second_l = 7'b0011001;
+				5: second_l = 7'b0010010;
+				6: second_l = 7'b0000010;
+				7: second_l = 7'b1111000;
+				8: second_l = 7'b0000000;
+				9: second_l = 7'b0010000;
+		
+			endcase
+			case(second_tens)
+				0: second_h = 7'b1000000;
+				1: second_h = 7'b1111001;
+				2: second_h = 7'b0100100;
+				3: second_h = 7'b0110000;
+				4: second_h = 7'b0011001;
+				5: second_h = 7'b0010010;
+		
+			endcase
+		end
+		always @(posedge clk_m)
+		begin
+			minute_ones = minute % 10;
+			minute_tens = (minute - minute_ones) / 10;
+			case(minute_ones)
+				0: minute_l = 7'b1000000;
+				1: minute_l = 7'b1111001;
+				2: minute_l = 7'b0100100;
+				3: minute_l = 7'b0110000;
+				4: minute_l = 7'b0011001;
+				5: minute_l = 7'b0010010;
+				6: minute_l = 7'b0000010;
+				7: minute_l = 7'b1111000;
+				8: minute_l = 7'b0000000;
+				9: minute_l = 7'b0010000;
+		
+			endcase
+			case(minute_tens)
+				0: minute_h = 7'b1000000;
+				1: minute_h = 7'b1111001;
+				2: minute_h = 7'b0100100;
+				3: minute_h = 7'b0110000;
+				4: minute_h = 7'b0011001;
+				5: minute_h = 7'b0010010;
+		
+			endcase
+		end
+		always @(posedge clk_h)
+		begin
+			if(hour == 59) hour = 0;
+			else hour = hour + 1;
+			hour_ones = hour % 10;
+			hour_tens = (hour - hour_ones) / 10;
+			case(hour_ones)
+				0: hour_l = 7'b1000000;
+				1: hour_l = 7'b1111001;
+				2: hour_l = 7'b0100100;
+				3: hour_l = 7'b0110000;
+				4: hour_l = 7'b0011001;
+				5: hour_l = 7'b0010010;
+				6: hour_l = 7'b0000010;
+				7: hour_l = 7'b1111000;
+				8: hour_l = 7'b0000000;
+				9: hour_l = 7'b0010000;
+		
+			endcase
+			case(hour_tens)
+				0: hour_h = 7'b1000000;
+				1: hour_h = 7'b1111001;
+				2: hour_h = 7'b0100100;
+				3: hour_h = 7'b0110000;
+				4: hour_h = 7'b0011001;
+				5: hour_h = 7'b0010010;
+		
+			endcase
+		end
+endmodule

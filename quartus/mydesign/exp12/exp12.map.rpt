@@ -1,0 +1,1543 @@
+Analysis & Synthesis report for exp12
+Wed Dec 25 21:21:33 2019
+Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis IP Cores Summary
+ 10. State Machine - |exp12|keyboard_scan:K2S|state
+ 11. Registers Removed During Synthesis
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
+ 14. Inverted Register Statistics
+ 15. Registers Packed Into Inferred Megafunctions
+ 16. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 17. Source assignments for colordata:cd|altsyncram:altsyncram_component|altsyncram_dmf1:auto_generated
+ 18. Source assignments for rom_ascii:ra|altsyncram:altsyncram_component|altsyncram_gpf1:auto_generated
+ 19. Source assignments for speed:sp|altsyncram:altsyncram_component|altsyncram_j7f1:auto_generated
+ 20. Source assignments for score:scor|altsyncram:altsyncram_component|altsyncram_gcf1:auto_generated
+ 21. Source assignments for ps2_keyboard:PS2K|altsyncram:fifo_rtl_0|altsyncram_2qp1:auto_generated
+ 22. Parameter Settings for User Entity Instance: clkgen:c2c
+ 23. Parameter Settings for User Entity Instance: vga_ctrl:controller
+ 24. Parameter Settings for User Entity Instance: keyboard_scan:K2S
+ 25. Parameter Settings for User Entity Instance: colordata:cd|altsyncram:altsyncram_component
+ 26. Parameter Settings for User Entity Instance: rom_ascii:ra|altsyncram:altsyncram_component
+ 27. Parameter Settings for User Entity Instance: speed:sp|altsyncram:altsyncram_component
+ 28. Parameter Settings for User Entity Instance: score:scor|altsyncram:altsyncram_component
+ 29. Parameter Settings for Inferred Entity Instance: ps2_keyboard:PS2K|altsyncram:fifo_rtl_0
+ 30. Parameter Settings for Inferred Entity Instance: random:rand|lpm_divide:Mod0
+ 31. altsyncram Parameter Settings by Entity Instance
+ 32. Port Connectivity Checks: "score:scor"
+ 33. Port Connectivity Checks: "ps2_keyboard:PS2K"
+ 34. Port Connectivity Checks: "vga_out:outer"
+ 35. Port Connectivity Checks: "clkgen:c2c"
+ 36. Post-Synthesis Netlist Statistics for Top Partition
+ 37. Elapsed Time Per Partition
+ 38. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Wed Dec 25 21:21:33 2019       ;
+; Quartus Prime Version           ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
+; Revision Name                   ; exp12                                       ;
+; Top-level Entity Name           ; exp12                                       ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 2313                                        ;
+; Total pins                      ; 69                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 53,284                                      ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSXFC6D6F31C6     ;                    ;
+; Top-level entity name                                                           ; exp12              ; exp12              ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                   ;
++----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                     ; Library ;
++----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------+---------+
+; array_ctrl.v                     ; yes             ; User Verilog HDL File                  ; D:/quartus/mydesign/exp12/array_ctrl.v                           ;         ;
+; colordata.v                      ; yes             ; User Wizard-Generated File             ; D:/quartus/mydesign/exp12/colordata.v                            ;         ;
+; rom_ascii.v                      ; yes             ; User Wizard-Generated File             ; D:/quartus/mydesign/exp12/rom_ascii.v                            ;         ;
+; speed.v                          ; yes             ; User Wizard-Generated File             ; D:/quartus/mydesign/exp12/speed.v                                ;         ;
+; score.v                          ; yes             ; User Wizard-Generated File             ; D:/quartus/mydesign/exp12/score.v                                ;         ;
+; exp12.v                          ; yes             ; Auto-Found Verilog HDL File            ; D:/quartus/mydesign/exp12/exp12.v                                ;         ;
+; clkgen.v                         ; yes             ; Auto-Found Verilog HDL File            ; D:/quartus/mydesign/exp12/clkgen.v                               ;         ;
+; vga_ctrl.v                       ; yes             ; Auto-Found Verilog HDL File            ; D:/quartus/mydesign/exp12/vga_ctrl.v                             ;         ;
+; vga_out.v                        ; yes             ; Auto-Found Verilog HDL File            ; D:/quartus/mydesign/exp12/vga_out.v                              ;         ;
+; ps2_keyboard.v                   ; yes             ; Auto-Found Verilog HDL File            ; D:/quartus/mydesign/exp12/ps2_keyboard.v                         ;         ;
+; keyboard_scan.v                  ; yes             ; Auto-Found Verilog HDL File            ; D:/quartus/mydesign/exp12/keyboard_scan.v                        ;         ;
+; scan_hex.v                       ; yes             ; Auto-Found Verilog HDL File            ; D:/quartus/mydesign/exp12/scan_hex.v                             ;         ;
+; ascii_big.txt                    ; yes             ; Auto-Found File                        ; D:/quartus/mydesign/exp12/ascii_big.txt                          ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                           ; d:/quartus/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                           ; d:/quartus/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                           ; d:/quartus/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                           ; d:/quartus/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal171.inc                   ; yes             ; Megafunction                           ; d:/quartus/quartus/libraries/megafunctions/aglobal171.inc        ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                           ; d:/quartus/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                           ; d:/quartus/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                       ; yes             ; Megafunction                           ; d:/quartus/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                           ; d:/quartus/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_dmf1.tdf           ; yes             ; Auto-Generated Megafunction            ; D:/quartus/mydesign/exp12/db/altsyncram_dmf1.tdf                 ;         ;
+; colordata.mif                    ; yes             ; Auto-Found Memory Initialization File  ; D:/quartus/mydesign/exp12/colordata.mif                          ;         ;
+; db/altsyncram_gpf1.tdf           ; yes             ; Auto-Generated Megafunction            ; D:/quartus/mydesign/exp12/db/altsyncram_gpf1.tdf                 ;         ;
+; vga_font.mif                     ; yes             ; Auto-Found Memory Initialization File  ; D:/quartus/mydesign/exp12/vga_font.mif                           ;         ;
+; db/altsyncram_j7f1.tdf           ; yes             ; Auto-Generated Megafunction            ; D:/quartus/mydesign/exp12/db/altsyncram_j7f1.tdf                 ;         ;
+; speed.mif                        ; yes             ; Auto-Found Memory Initialization File  ; D:/quartus/mydesign/exp12/speed.mif                              ;         ;
+; db/altsyncram_gcf1.tdf           ; yes             ; Auto-Generated Megafunction            ; D:/quartus/mydesign/exp12/db/altsyncram_gcf1.tdf                 ;         ;
+; score.mif                        ; yes             ; Auto-Found Memory Initialization File  ; D:/quartus/mydesign/exp12/score.mif                              ;         ;
+; random.v                         ; yes             ; Auto-Found Verilog HDL File            ; D:/quartus/mydesign/exp12/random.v                               ;         ;
+; db/altsyncram_2qp1.tdf           ; yes             ; Auto-Generated Megafunction            ; D:/quartus/mydesign/exp12/db/altsyncram_2qp1.tdf                 ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                           ; d:/quartus/quartus/libraries/megafunctions/lpm_divide.tdf        ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                           ; d:/quartus/quartus/libraries/megafunctions/abs_divider.inc       ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                           ; d:/quartus/quartus/libraries/megafunctions/sign_div_unsign.inc   ;         ;
+; db/lpm_divide_62m.tdf            ; yes             ; Auto-Generated Megafunction            ; D:/quartus/mydesign/exp12/db/lpm_divide_62m.tdf                  ;         ;
+; db/sign_div_unsign_9kh.tdf       ; yes             ; Auto-Generated Megafunction            ; D:/quartus/mydesign/exp12/db/sign_div_unsign_9kh.tdf             ;         ;
+; db/alt_u_div_ose.tdf             ; yes             ; Auto-Generated Megafunction            ; D:/quartus/mydesign/exp12/db/alt_u_div_ose.tdf                   ;         ;
++----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                     ;
++---------------------------------------------+-------------------+
+; Resource                                    ; Usage             ;
++---------------------------------------------+-------------------+
+; Estimate of Logic utilization (ALMs needed) ; 2712              ;
+;                                             ;                   ;
+; Combinational ALUT usage for logic          ; 3758              ;
+;     -- 7 input functions                    ; 6                 ;
+;     -- 6 input functions                    ; 1569              ;
+;     -- 5 input functions                    ; 220               ;
+;     -- 4 input functions                    ; 133               ;
+;     -- <=3 input functions                  ; 1830              ;
+;                                             ;                   ;
+; Dedicated logic registers                   ; 2313              ;
+;                                             ;                   ;
+; I/O pins                                    ; 69                ;
+; Total MLAB memory bits                      ; 0                 ;
+; Total block memory bits                     ; 53284             ;
+;                                             ;                   ;
+; Total DSP Blocks                            ; 0                 ;
+;                                             ;                   ;
+; Maximum fan-out node                        ; clkgen:c2c|clkout ;
+; Maximum fan-out                             ; 1566              ;
+; Total fan-out                               ; 25494             ;
+; Average fan-out                             ; 4.06              ;
++---------------------------------------------+-------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                          ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                ; Entity Name         ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |exp12                                    ; 3758 (0)            ; 2313 (0)                  ; 53284             ; 0          ; 69   ; 0            ; |exp12                                                                                                             ; exp12               ; work         ;
+;    |array_ctrl:ac|                        ; 1219 (1219)         ; 615 (615)                 ; 0                 ; 0          ; 0    ; 0            ; |exp12|array_ctrl:ac                                                                                               ; array_ctrl          ; work         ;
+;    |clkgen:c2c|                           ; 43 (43)             ; 33 (33)                   ; 0                 ; 0          ; 0    ; 0            ; |exp12|clkgen:c2c                                                                                                  ; clkgen              ; work         ;
+;    |colordata:cd|                         ; 0 (0)               ; 0 (0)                     ; 192               ; 0          ; 0    ; 0            ; |exp12|colordata:cd                                                                                                ; colordata           ; work         ;
+;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 192               ; 0          ; 0    ; 0            ; |exp12|colordata:cd|altsyncram:altsyncram_component                                                                ; altsyncram          ; work         ;
+;          |altsyncram_dmf1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 192               ; 0          ; 0    ; 0            ; |exp12|colordata:cd|altsyncram:altsyncram_component|altsyncram_dmf1:auto_generated                                 ; altsyncram_dmf1     ; work         ;
+;    |keyboard_scan:K2S|                    ; 10 (10)             ; 19 (19)                   ; 0                 ; 0          ; 0    ; 0            ; |exp12|keyboard_scan:K2S                                                                                           ; keyboard_scan       ; work         ;
+;    |ps2_keyboard:PS2K|                    ; 34 (34)             ; 24 (24)                   ; 64                ; 0          ; 0    ; 0            ; |exp12|ps2_keyboard:PS2K                                                                                           ; ps2_keyboard        ; work         ;
+;       |altsyncram:fifo_rtl_0|             ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |exp12|ps2_keyboard:PS2K|altsyncram:fifo_rtl_0                                                                     ; altsyncram          ; work         ;
+;          |altsyncram_2qp1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 64                ; 0          ; 0    ; 0            ; |exp12|ps2_keyboard:PS2K|altsyncram:fifo_rtl_0|altsyncram_2qp1:auto_generated                                      ; altsyncram_2qp1     ; work         ;
+;    |random:rand|                          ; 70 (60)             ; 58 (58)                   ; 0                 ; 0          ; 0    ; 0            ; |exp12|random:rand                                                                                                 ; random              ; work         ;
+;       |lpm_divide:Mod0|                   ; 10 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |exp12|random:rand|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_62m:auto_generated|  ; 10 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |exp12|random:rand|lpm_divide:Mod0|lpm_divide_62m:auto_generated                                                   ; lpm_divide_62m      ; work         ;
+;             |sign_div_unsign_9kh:divider| ; 10 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |exp12|random:rand|lpm_divide:Mod0|lpm_divide_62m:auto_generated|sign_div_unsign_9kh:divider                       ; sign_div_unsign_9kh ; work         ;
+;                |alt_u_div_ose:divider|    ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |exp12|random:rand|lpm_divide:Mod0|lpm_divide_62m:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_ose:divider ; alt_u_div_ose       ; work         ;
+;    |rom_ascii:ra|                         ; 0 (0)               ; 0 (0)                     ; 49152             ; 0          ; 0    ; 0            ; |exp12|rom_ascii:ra                                                                                                ; rom_ascii           ; work         ;
+;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 49152             ; 0          ; 0    ; 0            ; |exp12|rom_ascii:ra|altsyncram:altsyncram_component                                                                ; altsyncram          ; work         ;
+;          |altsyncram_gpf1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 49152             ; 0          ; 0    ; 0            ; |exp12|rom_ascii:ra|altsyncram:altsyncram_component|altsyncram_gpf1:auto_generated                                 ; altsyncram_gpf1     ; work         ;
+;    |scan_HEX:S2H|                         ; 20 (20)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |exp12|scan_HEX:S2H                                                                                                ; scan_HEX            ; work         ;
+;    |score:scor|                           ; 0 (0)               ; 0 (0)                     ; 3840              ; 0          ; 0    ; 0            ; |exp12|score:scor                                                                                                  ; score               ; work         ;
+;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 3840              ; 0          ; 0    ; 0            ; |exp12|score:scor|altsyncram:altsyncram_component                                                                  ; altsyncram          ; work         ;
+;          |altsyncram_gcf1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 3840              ; 0          ; 0    ; 0            ; |exp12|score:scor|altsyncram:altsyncram_component|altsyncram_gcf1:auto_generated                                   ; altsyncram_gcf1     ; work         ;
+;    |speed:sp|                             ; 0 (0)               ; 0 (0)                     ; 36                ; 0          ; 0    ; 0            ; |exp12|speed:sp                                                                                                    ; speed               ; work         ;
+;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 36                ; 0          ; 0    ; 0            ; |exp12|speed:sp|altsyncram:altsyncram_component                                                                    ; altsyncram          ; work         ;
+;          |altsyncram_j7f1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 36                ; 0          ; 0    ; 0            ; |exp12|speed:sp|altsyncram:altsyncram_component|altsyncram_j7f1:auto_generated                                     ; altsyncram_j7f1     ; work         ;
+;    |vga_ctrl:controller|                  ; 65 (65)             ; 20 (20)                   ; 0                 ; 0          ; 0    ; 0            ; |exp12|vga_ctrl:controller                                                                                         ; vga_ctrl            ; work         ;
+;    |vga_out:outer|                        ; 2297 (2297)         ; 1544 (1544)               ; 0                 ; 0          ; 0    ; 0            ; |exp12|vga_out:outer                                                                                               ; vga_out             ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                     ;
++----------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+---------------+
+; Name                                                                                   ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size  ; MIF           ;
++----------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+---------------+
+; colordata:cd|altsyncram:altsyncram_component|altsyncram_dmf1:auto_generated|ALTSYNCRAM ; AUTO ; ROM              ; 8            ; 24           ; --           ; --           ; 192   ; colordata.mif ;
+; ps2_keyboard:PS2K|altsyncram:fifo_rtl_0|altsyncram_2qp1:auto_generated|ALTSYNCRAM      ; AUTO ; Simple Dual Port ; 8            ; 8            ; 8            ; 8            ; 64    ; None          ;
+; rom_ascii:ra|altsyncram:altsyncram_component|altsyncram_gpf1:auto_generated|ALTSYNCRAM ; AUTO ; ROM              ; 4096         ; 12           ; --           ; --           ; 49152 ; vga_font.mif  ;
+; score:scor|altsyncram:altsyncram_component|altsyncram_gcf1:auto_generated|ALTSYNCRAM   ; AUTO ; ROM              ; 320          ; 12           ; --           ; --           ; 3840  ; score.mif     ;
+; speed:sp|altsyncram:altsyncram_component|altsyncram_j7f1:auto_generated|ALTSYNCRAM     ; AUTO ; ROM              ; 4            ; 9            ; --           ; --           ; 36    ; speed.mif     ;
++----------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+---------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                 ;
++--------+--------------+---------+--------------+--------------+---------------------+-----------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance     ; IP Include File ;
++--------+--------------+---------+--------------+--------------+---------------------+-----------------+
+; Altera ; ROM: 1-PORT  ; 17.1    ; N/A          ; N/A          ; |exp12|colordata:cd ; colordata.v     ;
+; Altera ; ROM: 1-PORT  ; 17.1    ; N/A          ; N/A          ; |exp12|rom_ascii:ra ; rom_ascii.v     ;
+; Altera ; ROM: 1-PORT  ; 17.1    ; N/A          ; N/A          ; |exp12|score:scor   ; score.v         ;
+; Altera ; ROM: 1-PORT  ; 17.1    ; N/A          ; N/A          ; |exp12|speed:sp     ; speed.v         ;
++--------+--------------+---------+--------------+--------------+---------------------+-----------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------+
+; State Machine - |exp12|keyboard_scan:K2S|state ;
++----------+----------+----------+---------------+
+; Name     ; state.00 ; state.w1 ; state.f0      ;
++----------+----------+----------+---------------+
+; state.00 ; 0        ; 0        ; 0             ;
+; state.f0 ; 1        ; 0        ; 1             ;
+; state.w1 ; 1        ; 1        ; 0             ;
++----------+----------+----------+---------------+
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; random:rand|ASCII[6]                   ; Stuck at VCC due to stuck port data_in ;
+; random:rand|ASCII[7]                   ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[0][7]         ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[1][7]         ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[2][7]         ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[3][7]         ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[4][7]         ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[5][7]         ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[6][7]         ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[7][7]         ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[8][7]         ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[9][7]         ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[10][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[11][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[12][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[13][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[14][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[15][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[16][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[17][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[18][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[19][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[20][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[21][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[22][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[23][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[24][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[25][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[26][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[27][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[28][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[29][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[30][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[31][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[32][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[33][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[34][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[35][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[36][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[37][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[38][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[39][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[40][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[41][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[42][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[43][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[44][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[45][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[46][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[47][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[48][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[49][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[50][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[51][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[52][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[53][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[54][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[55][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[56][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[57][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[58][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[59][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[60][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[61][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[62][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[63][7]        ; Stuck at GND due to stuck port data_in ;
+; array_ctrl:ac|asciiarray[0][6]         ; Stuck at VCC due to stuck port data_in ;
+; Total Number of Removed Registers = 67 ;                                        ;
++----------------------------------------+----------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                          ;
++----------------------+---------------------------+-------------------------------------------------------------------+
+; Register name        ; Reason for Removal        ; Registers Removed due to This Register                            ;
++----------------------+---------------------------+-------------------------------------------------------------------+
+; random:rand|ASCII[7] ; Stuck at GND              ; array_ctrl:ac|asciiarray[0][7], array_ctrl:ac|asciiarray[1][7],   ;
+;                      ; due to stuck port data_in ; array_ctrl:ac|asciiarray[2][7], array_ctrl:ac|asciiarray[3][7],   ;
+;                      ;                           ; array_ctrl:ac|asciiarray[4][7], array_ctrl:ac|asciiarray[5][7],   ;
+;                      ;                           ; array_ctrl:ac|asciiarray[6][7], array_ctrl:ac|asciiarray[7][7],   ;
+;                      ;                           ; array_ctrl:ac|asciiarray[8][7], array_ctrl:ac|asciiarray[9][7],   ;
+;                      ;                           ; array_ctrl:ac|asciiarray[10][7], array_ctrl:ac|asciiarray[11][7], ;
+;                      ;                           ; array_ctrl:ac|asciiarray[12][7], array_ctrl:ac|asciiarray[13][7], ;
+;                      ;                           ; array_ctrl:ac|asciiarray[14][7], array_ctrl:ac|asciiarray[15][7], ;
+;                      ;                           ; array_ctrl:ac|asciiarray[16][7], array_ctrl:ac|asciiarray[17][7], ;
+;                      ;                           ; array_ctrl:ac|asciiarray[18][7], array_ctrl:ac|asciiarray[19][7], ;
+;                      ;                           ; array_ctrl:ac|asciiarray[20][7], array_ctrl:ac|asciiarray[21][7], ;
+;                      ;                           ; array_ctrl:ac|asciiarray[22][7], array_ctrl:ac|asciiarray[23][7], ;
+;                      ;                           ; array_ctrl:ac|asciiarray[24][7], array_ctrl:ac|asciiarray[25][7], ;
+;                      ;                           ; array_ctrl:ac|asciiarray[26][7], array_ctrl:ac|asciiarray[27][7], ;
+;                      ;                           ; array_ctrl:ac|asciiarray[28][7], array_ctrl:ac|asciiarray[29][7], ;
+;                      ;                           ; array_ctrl:ac|asciiarray[30][7], array_ctrl:ac|asciiarray[31][7], ;
+;                      ;                           ; array_ctrl:ac|asciiarray[32][7], array_ctrl:ac|asciiarray[33][7], ;
+;                      ;                           ; array_ctrl:ac|asciiarray[34][7], array_ctrl:ac|asciiarray[35][7], ;
+;                      ;                           ; array_ctrl:ac|asciiarray[36][7], array_ctrl:ac|asciiarray[37][7], ;
+;                      ;                           ; array_ctrl:ac|asciiarray[38][7], array_ctrl:ac|asciiarray[39][7], ;
+;                      ;                           ; array_ctrl:ac|asciiarray[40][7], array_ctrl:ac|asciiarray[41][7], ;
+;                      ;                           ; array_ctrl:ac|asciiarray[42][7], array_ctrl:ac|asciiarray[43][7], ;
+;                      ;                           ; array_ctrl:ac|asciiarray[44][7], array_ctrl:ac|asciiarray[45][7], ;
+;                      ;                           ; array_ctrl:ac|asciiarray[46][7], array_ctrl:ac|asciiarray[47][7], ;
+;                      ;                           ; array_ctrl:ac|asciiarray[48][7], array_ctrl:ac|asciiarray[49][7], ;
+;                      ;                           ; array_ctrl:ac|asciiarray[50][7], array_ctrl:ac|asciiarray[51][7], ;
+;                      ;                           ; array_ctrl:ac|asciiarray[52][7], array_ctrl:ac|asciiarray[53][7], ;
+;                      ;                           ; array_ctrl:ac|asciiarray[54][7], array_ctrl:ac|asciiarray[55][7], ;
+;                      ;                           ; array_ctrl:ac|asciiarray[56][7], array_ctrl:ac|asciiarray[57][7], ;
+;                      ;                           ; array_ctrl:ac|asciiarray[58][7], array_ctrl:ac|asciiarray[59][7], ;
+;                      ;                           ; array_ctrl:ac|asciiarray[60][7], array_ctrl:ac|asciiarray[61][7], ;
+;                      ;                           ; array_ctrl:ac|asciiarray[62][7], array_ctrl:ac|asciiarray[63][7]  ;
+; random:rand|ASCII[6] ; Stuck at VCC              ; array_ctrl:ac|asciiarray[0][6]                                    ;
+;                      ; due to stuck port data_in ;                                                                   ;
++----------------------+---------------------------+-------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 2313  ;
+; Number of registers using Synchronous Clear  ; 1479  ;
+; Number of registers using Synchronous Load   ; 599   ;
+; Number of registers using Asynchronous Clear ; 10    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 1594  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; array_ctrl:ac|heart[1]                 ; 11      ;
+; array_ctrl:ac|heart[0]                 ; 12      ;
+; vga_ctrl:controller|x_cnt[0]           ; 4       ;
+; Total number of inverted registers = 3 ;         ;
++----------------------------------------+---------+
+
+
++------------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                     ;
++----------------------------+------------------------------+------+
+; Register Name              ; Megafunction                 ; Type ;
++----------------------------+------------------------------+------+
+; keyboard_scan:K2S|P0[0..7] ; ps2_keyboard:PS2K|fifo_rtl_0 ; RAM  ;
++----------------------------+------------------------------+------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |exp12|clkgen:c2c|clkcount[20]         ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[63][8] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[62][6] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[61][8] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[60][1] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[59][4] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[58][5] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[57][1] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[56][4] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[55][4] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[54][6] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[53][7] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[52][8] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[51][7] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[50][8] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[49][1] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[48][0] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[47][1] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[46][3] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[45][0] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[44][8] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[43][0] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[42][0] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[41][8] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[40][4] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[39][7] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[38][7] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[37][1] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[36][3] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[35][5] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[34][8] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[33][8] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[32][6] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[31][4] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[30][1] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[29][2] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[28][1] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[27][3] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[26][6] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[25][5] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[24][5] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[23][4] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[22][2] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[21][5] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[20][2] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[19][2] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[18][2] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[17][1] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[16][1] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[15][1] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[14][1] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[13][6] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[12][3] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[11][0] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[10][6] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[9][5]  ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[8][5]  ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[7][0]  ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[6][1]  ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[5][5]  ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[4][5]  ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[3][2]  ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[2][7]  ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[1][2]  ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_out:outer|offset_tmp[0][1]  ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[32][0] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[16][0] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[48][3] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[8][5]  ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[40][4] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[24][1] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[56][0] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[4][0]  ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[36][1] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[20][5] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[52][2] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[12][2] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[44][3] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[28][5] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[60][0] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[2][1]  ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[34][5] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[18][5] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[50][3] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[10][5] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[42][5] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[26][5] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[58][3] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[6][2]  ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[38][2] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[22][3] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[54][3] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[14][0] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[46][1] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[30][2] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[62][0] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[1][0]  ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[33][0] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[17][3] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[49][5] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[9][3]  ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[41][5] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[25][3] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[57][1] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[5][5]  ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[37][4] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[21][4] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[53][3] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[13][1] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[45][3] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[29][4] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[61][4] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[3][4]  ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[35][0] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[19][4] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[51][3] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[11][4] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[43][4] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[27][3] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[59][4] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[7][2]  ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[39][1] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[23][0] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[55][0] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[15][3] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[47][2] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[31][2] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |exp12|array_ctrl:ac|asciiarray[63][2] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |exp12|vga_ctrl:controller|y_cnt[4]    ;
+; 4:1                ; 23 bits   ; 46 LEs        ; 0 LEs                ; 46 LEs                 ; Yes        ; |exp12|vga_out:outer|vga_data[9]       ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[63][0]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[62][8]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[61][7]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[60][7]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[59][7]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[58][6]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[57][3]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[56][7]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[55][4]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[54][8]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[53][7]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[52][8]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[51][7]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[50][0]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[49][5]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[48][3]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[47][2]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[46][5]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[45][4]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[44][4]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[43][2]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[42][2]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[41][5]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[40][5]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[39][3]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[38][1]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[37][6]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[36][2]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[35][1]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[34][0]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[33][7]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[32][7]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[31][6]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[30][2]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[29][3]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[28][0]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[27][6]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[26][2]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[25][2]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[24][3]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[23][2]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[22][1]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[21][6]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[20][4]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[19][6]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[18][6]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[17][6]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[16][0]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[15][1]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[14][5]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[13][8]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[12][3]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[11][2]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[10][5]     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[9][5]      ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[8][2]      ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[7][3]      ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[6][7]      ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[5][1]      ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[4][1]      ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[3][0]      ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[2][5]      ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[1][6]      ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |exp12|vga_out:outer|offset[0][4]      ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |exp12|vga_out:outer|addr[3]           ;
+; 8:1                ; 5 bits    ; 25 LEs        ; 20 LEs               ; 5 LEs                  ; Yes        ; |exp12|vga_out:outer|addr[5]           ;
+; 26:1               ; 6 bits    ; 102 LEs       ; 102 LEs              ; 0 LEs                  ; No         ; |exp12|array_ctrl:ac|Mux11             ;
+; 26:1               ; 6 bits    ; 102 LEs       ; 102 LEs              ; 0 LEs                  ; No         ; |exp12|array_ctrl:ac|Mux19             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |exp12|keyboard_scan:K2S|Selector1     ;
+; 64:1               ; 15 bits   ; 630 LEs       ; 630 LEs              ; 0 LEs                  ; No         ; |exp12|array_ctrl:ac|Mux7              ;
+; 64:1               ; 18 bits   ; 756 LEs       ; 756 LEs              ; 0 LEs                  ; No         ; |exp12|vga_out:outer|Mux12             ;
+; 128:1              ; 18 bits   ; 1530 LEs      ; 774 LEs              ; 756 LEs                ; No         ; |exp12|vga_out:outer|Mux33             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; Source assignments for colordata:cd|altsyncram:altsyncram_component|altsyncram_dmf1:auto_generated ;
++---------------------------------+--------------------+------+--------------------------------------+
+; Assignment                      ; Value              ; From ; To                                   ;
++---------------------------------+--------------------+------+--------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                    ;
++---------------------------------+--------------------+------+--------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; Source assignments for rom_ascii:ra|altsyncram:altsyncram_component|altsyncram_gpf1:auto_generated ;
++---------------------------------+--------------------+------+--------------------------------------+
+; Assignment                      ; Value              ; From ; To                                   ;
++---------------------------------+--------------------+------+--------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                    ;
++---------------------------------+--------------------+------+--------------------------------------+
+
+
++------------------------------------------------------------------------------------------------+
+; Source assignments for speed:sp|altsyncram:altsyncram_component|altsyncram_j7f1:auto_generated ;
++---------------------------------+--------------------+------+----------------------------------+
+; Assignment                      ; Value              ; From ; To                               ;
++---------------------------------+--------------------+------+----------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                ;
++---------------------------------+--------------------+------+----------------------------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Source assignments for score:scor|altsyncram:altsyncram_component|altsyncram_gcf1:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------+
+; Assignment                      ; Value              ; From ; To                                 ;
++---------------------------------+--------------------+------+------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                  ;
++---------------------------------+--------------------+------+------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------+
+; Source assignments for ps2_keyboard:PS2K|altsyncram:fifo_rtl_0|altsyncram_2qp1:auto_generated ;
++---------------------------------+--------------------+------+---------------------------------+
+; Assignment                      ; Value              ; From ; To                              ;
++---------------------------------+--------------------+------+---------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                               ;
++---------------------------------+--------------------+------+---------------------------------+
+
+
++---------------------------------------------------------+
+; Parameter Settings for User Entity Instance: clkgen:c2c ;
++----------------+----------+-----------------------------+
+; Parameter Name ; Value    ; Type                        ;
++----------------+----------+-----------------------------+
+; clk_freq       ; 25000000 ; Signed Integer              ;
+; countlimit     ; 1        ; Signed Integer              ;
++----------------+----------+-----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vga_ctrl:controller ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; h_frontporch   ; 96    ; Signed Integer                          ;
+; h_active       ; 144   ; Signed Integer                          ;
+; h_backporch    ; 784   ; Signed Integer                          ;
+; h_total        ; 800   ; Signed Integer                          ;
+; v_frontporch   ; 2     ; Signed Integer                          ;
+; v_active       ; 35    ; Signed Integer                          ;
+; v_backporch    ; 515   ; Signed Integer                          ;
+; v_total        ; 525   ; Signed Integer                          ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: keyboard_scan:K2S ;
++----------------+-------+---------------------------------------+
+; Parameter Name ; Value ; Type                                  ;
++----------------+-------+---------------------------------------+
+; st             ; 00    ; Unsigned Binary                       ;
+; f0             ; 01    ; Unsigned Binary                       ;
+; w1             ; 10    ; Unsigned Binary                       ;
+; sh             ; 11    ; Unsigned Binary                       ;
++----------------+-------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: colordata:cd|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+-------------------------------+
+; Parameter Name                     ; Value                ; Type                          ;
++------------------------------------+----------------------+-------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                       ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                    ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                  ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                  ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                       ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                       ;
+; WIDTH_A                            ; 24                   ; Signed Integer                ;
+; WIDTHAD_A                          ; 3                    ; Signed Integer                ;
+; NUMWORDS_A                         ; 8                    ; Signed Integer                ;
+; OUTDATA_REG_A                      ; CLOCK0               ; Untyped                       ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                       ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                       ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                       ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                       ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                       ;
+; WIDTH_B                            ; 1                    ; Untyped                       ;
+; WIDTHAD_B                          ; 1                    ; Untyped                       ;
+; NUMWORDS_B                         ; 1                    ; Untyped                       ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                       ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                       ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                       ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                       ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                       ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                       ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                       ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                       ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                       ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                       ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                       ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                       ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                       ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                       ;
+; BYTE_SIZE                          ; 8                    ; Untyped                       ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                       ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                       ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                       ;
+; INIT_FILE                          ; colordata.mif        ; Untyped                       ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                       ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                       ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                       ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                       ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                       ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                       ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                       ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                       ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                       ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                       ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                       ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                       ;
+; CBXI_PARAMETER                     ; altsyncram_dmf1      ; Untyped                       ;
++------------------------------------+----------------------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: rom_ascii:ra|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+-------------------------------+
+; Parameter Name                     ; Value                ; Type                          ;
++------------------------------------+----------------------+-------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                       ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                    ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                  ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                  ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                       ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                       ;
+; WIDTH_A                            ; 12                   ; Signed Integer                ;
+; WIDTHAD_A                          ; 12                   ; Signed Integer                ;
+; NUMWORDS_A                         ; 4096                 ; Signed Integer                ;
+; OUTDATA_REG_A                      ; CLOCK0               ; Untyped                       ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                       ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                       ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                       ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                       ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                       ;
+; WIDTH_B                            ; 1                    ; Untyped                       ;
+; WIDTHAD_B                          ; 1                    ; Untyped                       ;
+; NUMWORDS_B                         ; 1                    ; Untyped                       ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                       ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                       ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                       ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                       ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                       ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                       ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                       ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                       ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                       ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                       ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                       ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                       ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                       ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                       ;
+; BYTE_SIZE                          ; 8                    ; Untyped                       ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                       ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                       ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                       ;
+; INIT_FILE                          ; vga_font.mif         ; Untyped                       ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                       ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                       ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                       ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                       ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                       ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                       ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                       ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                       ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                       ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                       ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                       ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                       ;
+; CBXI_PARAMETER                     ; altsyncram_gpf1      ; Untyped                       ;
++------------------------------------+----------------------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: speed:sp|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+---------------------------+
+; Parameter Name                     ; Value                ; Type                      ;
++------------------------------------+----------------------+---------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                   ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY              ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE              ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE            ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                   ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                   ;
+; WIDTH_A                            ; 9                    ; Signed Integer            ;
+; WIDTHAD_A                          ; 2                    ; Signed Integer            ;
+; NUMWORDS_A                         ; 4                    ; Signed Integer            ;
+; OUTDATA_REG_A                      ; CLOCK0               ; Untyped                   ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                   ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                   ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                   ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                   ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                   ;
+; WIDTH_B                            ; 1                    ; Untyped                   ;
+; WIDTHAD_B                          ; 1                    ; Untyped                   ;
+; NUMWORDS_B                         ; 1                    ; Untyped                   ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                   ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                   ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                   ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                   ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                   ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                   ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                   ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                   ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                   ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                   ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                   ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                   ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer            ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                   ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                   ;
+; BYTE_SIZE                          ; 8                    ; Untyped                   ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                   ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                   ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                   ;
+; INIT_FILE                          ; speed.mif            ; Untyped                   ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                   ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                   ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                   ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                   ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                   ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                   ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                   ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                   ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                   ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                   ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                   ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                   ;
+; CBXI_PARAMETER                     ; altsyncram_j7f1      ; Untyped                   ;
++------------------------------------+----------------------+---------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: score:scor|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+-----------------------------+
+; Parameter Name                     ; Value                ; Type                        ;
++------------------------------------+----------------------+-----------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                     ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                  ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE              ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                     ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                     ;
+; WIDTH_A                            ; 12                   ; Signed Integer              ;
+; WIDTHAD_A                          ; 9                    ; Signed Integer              ;
+; NUMWORDS_A                         ; 320                  ; Signed Integer              ;
+; OUTDATA_REG_A                      ; CLOCK0               ; Untyped                     ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                     ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                     ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                     ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                     ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                     ;
+; WIDTH_B                            ; 1                    ; Untyped                     ;
+; WIDTHAD_B                          ; 1                    ; Untyped                     ;
+; NUMWORDS_B                         ; 1                    ; Untyped                     ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                     ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                     ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                     ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                     ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                     ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                     ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                     ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                     ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                     ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                     ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                     ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                     ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer              ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                     ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                     ;
+; BYTE_SIZE                          ; 8                    ; Untyped                     ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                     ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                     ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                     ;
+; INIT_FILE                          ; score.mif            ; Untyped                     ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                     ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                     ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                     ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                     ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                     ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                     ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                     ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                     ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                     ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                     ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                     ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                     ;
+; CBXI_PARAMETER                     ; altsyncram_gcf1      ; Untyped                     ;
++------------------------------------+----------------------+-----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: ps2_keyboard:PS2K|altsyncram:fifo_rtl_0 ;
++------------------------------------+----------------------+------------------------------+
+; Parameter Name                     ; Value                ; Type                         ;
++------------------------------------+----------------------+------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                      ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                   ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                 ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                 ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE               ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                      ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                      ;
+; WIDTH_A                            ; 8                    ; Untyped                      ;
+; WIDTHAD_A                          ; 3                    ; Untyped                      ;
+; NUMWORDS_A                         ; 8                    ; Untyped                      ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                      ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                      ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                      ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                      ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                      ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                      ;
+; WIDTH_B                            ; 8                    ; Untyped                      ;
+; WIDTHAD_B                          ; 3                    ; Untyped                      ;
+; NUMWORDS_B                         ; 8                    ; Untyped                      ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                      ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                      ;
+; RDCONTROL_REG_B                    ; CLOCK0               ; Untyped                      ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                      ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                      ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                      ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                      ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                      ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                      ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                      ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                      ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                      ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                      ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                      ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                      ;
+; BYTE_SIZE                          ; 8                    ; Untyped                      ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA             ; Untyped                      ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                      ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                      ;
+; INIT_FILE                          ; UNUSED               ; Untyped                      ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                      ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                      ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                      ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                      ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                      ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                      ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                      ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                      ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                      ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                      ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                      ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                      ;
+; CBXI_PARAMETER                     ; altsyncram_2qp1      ; Untyped                      ;
++------------------------------------+----------------------+------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: random:rand|lpm_divide:Mod0 ;
++------------------------+----------------+------------------------------------+
+; Parameter Name         ; Value          ; Type                               ;
++------------------------+----------------+------------------------------------+
+; LPM_WIDTHN             ; 5              ; Untyped                            ;
+; LPM_WIDTHD             ; 5              ; Untyped                            ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                            ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                            ;
+; LPM_PIPELINE           ; 0              ; Untyped                            ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                            ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                            ;
+; CBXI_PARAMETER         ; lpm_divide_62m ; Untyped                            ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                            ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                            ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                         ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                       ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                       ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                     ;
++------------------------+----------------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                         ;
++-------------------------------------------+----------------------------------------------+
+; Name                                      ; Value                                        ;
++-------------------------------------------+----------------------------------------------+
+; Number of entity instances                ; 5                                            ;
+; Entity Instance                           ; colordata:cd|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; ROM                                          ;
+;     -- WIDTH_A                            ; 24                                           ;
+;     -- NUMWORDS_A                         ; 8                                            ;
+;     -- OUTDATA_REG_A                      ; CLOCK0                                       ;
+;     -- WIDTH_B                            ; 1                                            ;
+;     -- NUMWORDS_B                         ; 1                                            ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                       ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                 ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                         ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                    ;
+; Entity Instance                           ; rom_ascii:ra|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; ROM                                          ;
+;     -- WIDTH_A                            ; 12                                           ;
+;     -- NUMWORDS_A                         ; 4096                                         ;
+;     -- OUTDATA_REG_A                      ; CLOCK0                                       ;
+;     -- WIDTH_B                            ; 1                                            ;
+;     -- NUMWORDS_B                         ; 1                                            ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                       ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                 ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                         ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                    ;
+; Entity Instance                           ; speed:sp|altsyncram:altsyncram_component     ;
+;     -- OPERATION_MODE                     ; ROM                                          ;
+;     -- WIDTH_A                            ; 9                                            ;
+;     -- NUMWORDS_A                         ; 4                                            ;
+;     -- OUTDATA_REG_A                      ; CLOCK0                                       ;
+;     -- WIDTH_B                            ; 1                                            ;
+;     -- NUMWORDS_B                         ; 1                                            ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                       ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                 ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                         ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                    ;
+; Entity Instance                           ; score:scor|altsyncram:altsyncram_component   ;
+;     -- OPERATION_MODE                     ; ROM                                          ;
+;     -- WIDTH_A                            ; 12                                           ;
+;     -- NUMWORDS_A                         ; 320                                          ;
+;     -- OUTDATA_REG_A                      ; CLOCK0                                       ;
+;     -- WIDTH_B                            ; 1                                            ;
+;     -- NUMWORDS_B                         ; 1                                            ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                       ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                 ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                         ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                    ;
+; Entity Instance                           ; ps2_keyboard:PS2K|altsyncram:fifo_rtl_0      ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                    ;
+;     -- WIDTH_A                            ; 8                                            ;
+;     -- NUMWORDS_A                         ; 8                                            ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                 ;
+;     -- WIDTH_B                            ; 8                                            ;
+;     -- NUMWORDS_B                         ; 8                                            ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                       ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                 ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                         ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                     ;
++-------------------------------------------+----------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "score:scor"                                                                                                                                                                         ;
++---------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                                                                                                           ;
++---------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; address ; Input ; Warning  ; Input port expression (13 bits) is wider than the input port (9 bits) it drives.  The 4 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++---------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ps2_keyboard:PS2K"                                                                                                                                                                     ;
++----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                                                                                                                            ;
++----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; clrn     ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; clrn[-1] ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; overflow ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
++----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vga_out:outer"                                                                                                                          ;
++-------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                                                                          ;
++-------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------+
+; read_addr   ; Output ; Warning  ; Output or bidir port (13 bits) is wider than the port expression (12 bits) it drives; bit(s) "read_addr[12..12]" have no fanouts ;
+; addr[12..9] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                              ;
++-------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------+
+; Port Connectivity Checks: "clkgen:c2c"  ;
++-------+-------+----------+--------------+
+; Port  ; Type  ; Severity ; Details      ;
++-------+-------+----------+--------------+
+; clken ; Input ; Info     ; Stuck at VCC ;
++-------+-------+----------+--------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 2313                        ;
+;     CLR               ; 1                           ;
+;     CLR SCLR          ; 9                           ;
+;     ENA               ; 787                         ;
+;     ENA SCLR          ; 807                         ;
+;     SCLR              ; 64                          ;
+;     SCLR SLD          ; 599                         ;
+;     plain             ; 46                          ;
+; arriav_io_obuf        ; 8                           ;
+; arriav_lcell_comb     ; 3760                        ;
+;     arith             ; 536                         ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 478                         ;
+;         2 data inputs ; 22                          ;
+;         4 data inputs ; 15                          ;
+;         5 data inputs ; 19                          ;
+;     extend            ; 6                           ;
+;         7 data inputs ; 6                           ;
+;     normal            ; 3200                        ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 8                           ;
+;         2 data inputs ; 86                          ;
+;         3 data inputs ; 1218                        ;
+;         4 data inputs ; 117                         ;
+;         5 data inputs ; 201                         ;
+;         6 data inputs ; 1569                        ;
+;     shared            ; 18                          ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 2                           ;
+;         3 data inputs ; 9                           ;
+;         4 data inputs ; 1                           ;
+; boundary_port         ; 69                          ;
+; stratixv_ram_block    ; 65                          ;
+;                       ;                             ;
+; Max LUT depth         ; 14.50                       ;
+; Average LUT depth     ; 9.59                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:10     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+    Info: Processing started: Wed Dec 25 21:21:09 2019
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off exp12 -c exp12
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file array_ctrl.v
+    Info (12023): Found entity 1: array_ctrl File: D:/quartus/mydesign/exp12/array_ctrl.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file colordata.v
+    Info (12023): Found entity 1: colordata File: D:/quartus/mydesign/exp12/colordata.v Line: 39
+Info (12021): Found 1 design units, including 1 entities, in source file rom_ascii.v
+    Info (12023): Found entity 1: rom_ascii File: D:/quartus/mydesign/exp12/rom_ascii.v Line: 39
+Info (12021): Found 1 design units, including 1 entities, in source file speed.v
+    Info (12023): Found entity 1: speed File: D:/quartus/mydesign/exp12/speed.v Line: 39
+Info (12021): Found 1 design units, including 1 entities, in source file score.v
+    Info (12023): Found entity 1: score File: D:/quartus/mydesign/exp12/score.v Line: 39
+Warning (10463): Verilog HDL Declaration warning at exp12.v(117): "rand" is SystemVerilog-2005 keyword File: D:/quartus/mydesign/exp12/exp12.v Line: 117
+Warning (12125): Using design file exp12.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: exp12 File: D:/quartus/mydesign/exp12/exp12.v Line: 6
+Info (12127): Elaborating entity "exp12" for the top level hierarchy
+Warning (10034): Output port "AUD_DACDAT" at exp12.v(37) has no driver File: D:/quartus/mydesign/exp12/exp12.v Line: 37
+Warning (10034): Output port "AUD_XCK" at exp12.v(39) has no driver File: D:/quartus/mydesign/exp12/exp12.v Line: 39
+Warning (10034): Output port "FPGA_I2C_SCLK" at exp12.v(48) has no driver File: D:/quartus/mydesign/exp12/exp12.v Line: 48
+Warning (12125): Using design file clkgen.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: clkgen File: D:/quartus/mydesign/exp12/clkgen.v Line: 1
+Info (12128): Elaborating entity "clkgen" for hierarchy "clkgen:c2c" File: D:/quartus/mydesign/exp12/exp12.v Line: 100
+Warning (12125): Using design file vga_ctrl.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: vga_ctrl File: D:/quartus/mydesign/exp12/vga_ctrl.v Line: 1
+Info (12128): Elaborating entity "vga_ctrl" for hierarchy "vga_ctrl:controller" File: D:/quartus/mydesign/exp12/exp12.v Line: 101
+Warning (12125): Using design file vga_out.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: vga_out File: D:/quartus/mydesign/exp12/vga_out.v Line: 1
+Info (12128): Elaborating entity "vga_out" for hierarchy "vga_out:outer" File: D:/quartus/mydesign/exp12/exp12.v Line: 103
+Warning (10230): Verilog HDL assignment warning at vga_out.v(60): truncated value with size 32 to match size of target (6) File: D:/quartus/mydesign/exp12/vga_out.v Line: 60
+Warning (10230): Verilog HDL assignment warning at vga_out.v(69): truncated value with size 32 to match size of target (9) File: D:/quartus/mydesign/exp12/vga_out.v Line: 69
+Warning (10230): Verilog HDL assignment warning at vga_out.v(73): truncated value with size 32 to match size of target (9) File: D:/quartus/mydesign/exp12/vga_out.v Line: 73
+Warning (10230): Verilog HDL assignment warning at vga_out.v(99): truncated value with size 32 to match size of target (13) File: D:/quartus/mydesign/exp12/vga_out.v Line: 99
+Warning (10230): Verilog HDL assignment warning at vga_out.v(108): truncated value with size 32 to match size of target (13) File: D:/quartus/mydesign/exp12/vga_out.v Line: 108
+Warning (10230): Verilog HDL assignment warning at vga_out.v(109): truncated value with size 32 to match size of target (13) File: D:/quartus/mydesign/exp12/vga_out.v Line: 109
+Warning (10230): Verilog HDL assignment warning at vga_out.v(118): truncated value with size 32 to match size of target (13) File: D:/quartus/mydesign/exp12/vga_out.v Line: 118
+Warning (10230): Verilog HDL assignment warning at vga_out.v(127): truncated value with size 32 to match size of target (13) File: D:/quartus/mydesign/exp12/vga_out.v Line: 127
+Warning (10230): Verilog HDL assignment warning at vga_out.v(128): truncated value with size 32 to match size of target (13) File: D:/quartus/mydesign/exp12/vga_out.v Line: 128
+Warning (10230): Verilog HDL assignment warning at vga_out.v(139): truncated value with size 32 to match size of target (13) File: D:/quartus/mydesign/exp12/vga_out.v Line: 139
+Warning (12125): Using design file ps2_keyboard.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: ps2_keyboard File: D:/quartus/mydesign/exp12/ps2_keyboard.v Line: 1
+Info (12128): Elaborating entity "ps2_keyboard" for hierarchy "ps2_keyboard:PS2K" File: D:/quartus/mydesign/exp12/exp12.v Line: 105
+Warning (12125): Using design file keyboard_scan.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: keyboard_scan File: D:/quartus/mydesign/exp12/keyboard_scan.v Line: 1
+Info (12128): Elaborating entity "keyboard_scan" for hierarchy "keyboard_scan:K2S" File: D:/quartus/mydesign/exp12/exp12.v Line: 106
+Warning (10034): Output port "nextdata_n" at keyboard_scan.v(2) has no driver File: D:/quartus/mydesign/exp12/keyboard_scan.v Line: 2
+Warning (12125): Using design file scan_hex.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: scan_HEX File: D:/quartus/mydesign/exp12/scan_hex.v Line: 1
+Info (12128): Elaborating entity "scan_HEX" for hierarchy "scan_HEX:S2H" File: D:/quartus/mydesign/exp12/exp12.v Line: 107
+Warning (10030): Net "ascii_big.data_a" at scan_hex.v(4) has no driver or initial value, using a default initial value '0' File: D:/quartus/mydesign/exp12/scan_hex.v Line: 4
+Warning (10030): Net "ascii_big.waddr_a" at scan_hex.v(4) has no driver or initial value, using a default initial value '0' File: D:/quartus/mydesign/exp12/scan_hex.v Line: 4
+Warning (10030): Net "ascii_big.we_a" at scan_hex.v(4) has no driver or initial value, using a default initial value '0' File: D:/quartus/mydesign/exp12/scan_hex.v Line: 4
+Info (12128): Elaborating entity "array_ctrl" for hierarchy "array_ctrl:ac" File: D:/quartus/mydesign/exp12/exp12.v Line: 110
+Warning (10230): Verilog HDL assignment warning at array_ctrl.v(43): truncated value with size 32 to match size of target (4) File: D:/quartus/mydesign/exp12/array_ctrl.v Line: 43
+Warning (10230): Verilog HDL assignment warning at array_ctrl.v(48): truncated value with size 32 to match size of target (4) File: D:/quartus/mydesign/exp12/array_ctrl.v Line: 48
+Warning (10230): Verilog HDL assignment warning at array_ctrl.v(68): truncated value with size 32 to match size of target (3) File: D:/quartus/mydesign/exp12/array_ctrl.v Line: 68
+Warning (10034): Output port "LEDR[9..2]" at array_ctrl.v(2) has no driver File: D:/quartus/mydesign/exp12/array_ctrl.v Line: 2
+Info (12128): Elaborating entity "colordata" for hierarchy "colordata:cd" File: D:/quartus/mydesign/exp12/exp12.v Line: 112
+Info (12128): Elaborating entity "altsyncram" for hierarchy "colordata:cd|altsyncram:altsyncram_component" File: D:/quartus/mydesign/exp12/colordata.v Line: 81
+Info (12130): Elaborated megafunction instantiation "colordata:cd|altsyncram:altsyncram_component" File: D:/quartus/mydesign/exp12/colordata.v Line: 81
+Info (12133): Instantiated megafunction "colordata:cd|altsyncram:altsyncram_component" with the following parameter: File: D:/quartus/mydesign/exp12/colordata.v Line: 81
+    Info (12134): Parameter "address_aclr_a" = "NONE"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "colordata.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "8"
+    Info (12134): Parameter "operation_mode" = "ROM"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "CLOCK0"
+    Info (12134): Parameter "widthad_a" = "3"
+    Info (12134): Parameter "width_a" = "24"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_dmf1.tdf
+    Info (12023): Found entity 1: altsyncram_dmf1 File: D:/quartus/mydesign/exp12/db/altsyncram_dmf1.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_dmf1" for hierarchy "colordata:cd|altsyncram:altsyncram_component|altsyncram_dmf1:auto_generated" File: d:/quartus/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12128): Elaborating entity "rom_ascii" for hierarchy "rom_ascii:ra" File: D:/quartus/mydesign/exp12/exp12.v Line: 113
+Info (12128): Elaborating entity "altsyncram" for hierarchy "rom_ascii:ra|altsyncram:altsyncram_component" File: D:/quartus/mydesign/exp12/rom_ascii.v Line: 81
+Info (12130): Elaborated megafunction instantiation "rom_ascii:ra|altsyncram:altsyncram_component" File: D:/quartus/mydesign/exp12/rom_ascii.v Line: 81
+Info (12133): Instantiated megafunction "rom_ascii:ra|altsyncram:altsyncram_component" with the following parameter: File: D:/quartus/mydesign/exp12/rom_ascii.v Line: 81
+    Info (12134): Parameter "address_aclr_a" = "NONE"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "vga_font.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "4096"
+    Info (12134): Parameter "operation_mode" = "ROM"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "CLOCK0"
+    Info (12134): Parameter "widthad_a" = "12"
+    Info (12134): Parameter "width_a" = "12"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_gpf1.tdf
+    Info (12023): Found entity 1: altsyncram_gpf1 File: D:/quartus/mydesign/exp12/db/altsyncram_gpf1.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_gpf1" for hierarchy "rom_ascii:ra|altsyncram:altsyncram_component|altsyncram_gpf1:auto_generated" File: d:/quartus/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12128): Elaborating entity "speed" for hierarchy "speed:sp" File: D:/quartus/mydesign/exp12/exp12.v Line: 114
+Info (12128): Elaborating entity "altsyncram" for hierarchy "speed:sp|altsyncram:altsyncram_component" File: D:/quartus/mydesign/exp12/speed.v Line: 81
+Info (12130): Elaborated megafunction instantiation "speed:sp|altsyncram:altsyncram_component" File: D:/quartus/mydesign/exp12/speed.v Line: 81
+Info (12133): Instantiated megafunction "speed:sp|altsyncram:altsyncram_component" with the following parameter: File: D:/quartus/mydesign/exp12/speed.v Line: 81
+    Info (12134): Parameter "address_aclr_a" = "NONE"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "speed.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "4"
+    Info (12134): Parameter "operation_mode" = "ROM"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "CLOCK0"
+    Info (12134): Parameter "widthad_a" = "2"
+    Info (12134): Parameter "width_a" = "9"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_j7f1.tdf
+    Info (12023): Found entity 1: altsyncram_j7f1 File: D:/quartus/mydesign/exp12/db/altsyncram_j7f1.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_j7f1" for hierarchy "speed:sp|altsyncram:altsyncram_component|altsyncram_j7f1:auto_generated" File: d:/quartus/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12128): Elaborating entity "score" for hierarchy "score:scor" File: D:/quartus/mydesign/exp12/exp12.v Line: 115
+Info (12128): Elaborating entity "altsyncram" for hierarchy "score:scor|altsyncram:altsyncram_component" File: D:/quartus/mydesign/exp12/score.v Line: 81
+Info (12130): Elaborated megafunction instantiation "score:scor|altsyncram:altsyncram_component" File: D:/quartus/mydesign/exp12/score.v Line: 81
+Info (12133): Instantiated megafunction "score:scor|altsyncram:altsyncram_component" with the following parameter: File: D:/quartus/mydesign/exp12/score.v Line: 81
+    Info (12134): Parameter "address_aclr_a" = "NONE"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "score.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "320"
+    Info (12134): Parameter "operation_mode" = "ROM"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "CLOCK0"
+    Info (12134): Parameter "widthad_a" = "9"
+    Info (12134): Parameter "width_a" = "12"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_gcf1.tdf
+    Info (12023): Found entity 1: altsyncram_gcf1 File: D:/quartus/mydesign/exp12/db/altsyncram_gcf1.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_gcf1" for hierarchy "score:scor|altsyncram:altsyncram_component|altsyncram_gcf1:auto_generated" File: d:/quartus/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Warning (12125): Using design file random.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: random File: D:/quartus/mydesign/exp12/random.v Line: 1
+Info (12128): Elaborating entity "random" for hierarchy "random:rand" File: D:/quartus/mydesign/exp12/exp12.v Line: 117
+Warning (10230): Verilog HDL assignment warning at random.v(32): truncated value with size 32 to match size of target (8) File: D:/quartus/mydesign/exp12/random.v Line: 32
+Warning (10230): Verilog HDL assignment warning at random.v(41): truncated value with size 32 to match size of target (4) File: D:/quartus/mydesign/exp12/random.v Line: 41
+Warning (10230): Verilog HDL assignment warning at random.v(45): truncated value with size 32 to match size of target (4) File: D:/quartus/mydesign/exp12/random.v Line: 45
+Info (19000): Inferred 1 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "ps2_keyboard:PS2K|fifo_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 8
+        Info (286033): Parameter WIDTHAD_A set to 3
+        Info (286033): Parameter NUMWORDS_A set to 8
+        Info (286033): Parameter WIDTH_B set to 8
+        Info (286033): Parameter WIDTHAD_B set to 3
+        Info (286033): Parameter NUMWORDS_B set to 8
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+        Info (286033): Parameter RDCONTROL_REG_B set to CLOCK0
+Info (278001): Inferred 1 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "random:rand|Mod0" File: D:/quartus/mydesign/exp12/random.v Line: 32
+Info (12130): Elaborated megafunction instantiation "ps2_keyboard:PS2K|altsyncram:fifo_rtl_0"
+Info (12133): Instantiated megafunction "ps2_keyboard:PS2K|altsyncram:fifo_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "8"
+    Info (12134): Parameter "WIDTHAD_A" = "3"
+    Info (12134): Parameter "NUMWORDS_A" = "8"
+    Info (12134): Parameter "WIDTH_B" = "8"
+    Info (12134): Parameter "WIDTHAD_B" = "3"
+    Info (12134): Parameter "NUMWORDS_B" = "8"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
+    Info (12134): Parameter "RDCONTROL_REG_B" = "CLOCK0"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_2qp1.tdf
+    Info (12023): Found entity 1: altsyncram_2qp1 File: D:/quartus/mydesign/exp12/db/altsyncram_2qp1.tdf Line: 27
+Info (12130): Elaborated megafunction instantiation "random:rand|lpm_divide:Mod0" File: D:/quartus/mydesign/exp12/random.v Line: 32
+Info (12133): Instantiated megafunction "random:rand|lpm_divide:Mod0" with the following parameter: File: D:/quartus/mydesign/exp12/random.v Line: 32
+    Info (12134): Parameter "LPM_WIDTHN" = "5"
+    Info (12134): Parameter "LPM_WIDTHD" = "5"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_62m.tdf
+    Info (12023): Found entity 1: lpm_divide_62m File: D:/quartus/mydesign/exp12/db/lpm_divide_62m.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_9kh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_9kh File: D:/quartus/mydesign/exp12/db/sign_div_unsign_9kh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_ose.tdf
+    Info (12023): Found entity 1: alt_u_div_ose File: D:/quartus/mydesign/exp12/db/alt_u_div_ose.tdf Line: 22
+Warning (12241): 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13039): The following bidirectional pins have no drivers
+    Warning (13040): bidirectional pin "PS2_CLK" has no driver File: D:/quartus/mydesign/exp12/exp12.v Line: 42
+    Warning (13040): bidirectional pin "PS2_DAT" has no driver File: D:/quartus/mydesign/exp12/exp12.v Line: 44
+    Warning (13040): bidirectional pin "AUD_ADCLRCK" has no driver File: D:/quartus/mydesign/exp12/exp12.v Line: 35
+    Warning (13040): bidirectional pin "AUD_BCLK" has no driver File: D:/quartus/mydesign/exp12/exp12.v Line: 36
+    Warning (13040): bidirectional pin "AUD_DACLRCK" has no driver File: D:/quartus/mydesign/exp12/exp12.v Line: 38
+    Warning (13040): bidirectional pin "PS2_CLK2" has no driver File: D:/quartus/mydesign/exp12/exp12.v Line: 43
+    Warning (13040): bidirectional pin "PS2_DAT2" has no driver File: D:/quartus/mydesign/exp12/exp12.v Line: 45
+    Warning (13040): bidirectional pin "FPGA_I2C_SDAT" has no driver File: D:/quartus/mydesign/exp12/exp12.v Line: 50
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: D:/quartus/mydesign/exp12/exp12.v Line: 21
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: D:/quartus/mydesign/exp12/exp12.v Line: 21
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: D:/quartus/mydesign/exp12/exp12.v Line: 21
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: D:/quartus/mydesign/exp12/exp12.v Line: 21
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: D:/quartus/mydesign/exp12/exp12.v Line: 21
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: D:/quartus/mydesign/exp12/exp12.v Line: 21
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: D:/quartus/mydesign/exp12/exp12.v Line: 21
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: D:/quartus/mydesign/exp12/exp12.v Line: 21
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at GND File: D:/quartus/mydesign/exp12/exp12.v Line: 30
+    Warning (13410): Pin "AUD_DACDAT" is stuck at GND File: D:/quartus/mydesign/exp12/exp12.v Line: 37
+    Warning (13410): Pin "AUD_XCK" is stuck at GND File: D:/quartus/mydesign/exp12/exp12.v Line: 39
+    Warning (13410): Pin "FPGA_I2C_SCLK" is stuck at GND File: D:/quartus/mydesign/exp12/exp12.v Line: 48
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 17 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "CLOCK2_50" File: D:/quartus/mydesign/exp12/exp12.v Line: 9
+    Warning (15610): No output dependent on input pin "CLOCK3_50" File: D:/quartus/mydesign/exp12/exp12.v Line: 10
+    Warning (15610): No output dependent on input pin "CLOCK4_50" File: D:/quartus/mydesign/exp12/exp12.v Line: 11
+    Warning (15610): No output dependent on input pin "KEY[1]" File: D:/quartus/mydesign/exp12/exp12.v Line: 15
+    Warning (15610): No output dependent on input pin "KEY[2]" File: D:/quartus/mydesign/exp12/exp12.v Line: 15
+    Warning (15610): No output dependent on input pin "KEY[3]" File: D:/quartus/mydesign/exp12/exp12.v Line: 15
+    Warning (15610): No output dependent on input pin "SW[0]" File: D:/quartus/mydesign/exp12/exp12.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[1]" File: D:/quartus/mydesign/exp12/exp12.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[2]" File: D:/quartus/mydesign/exp12/exp12.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[3]" File: D:/quartus/mydesign/exp12/exp12.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[4]" File: D:/quartus/mydesign/exp12/exp12.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[5]" File: D:/quartus/mydesign/exp12/exp12.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[6]" File: D:/quartus/mydesign/exp12/exp12.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[7]" File: D:/quartus/mydesign/exp12/exp12.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[8]" File: D:/quartus/mydesign/exp12/exp12.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[9]" File: D:/quartus/mydesign/exp12/exp12.v Line: 18
+    Warning (15610): No output dependent on input pin "AUD_ADCDAT" File: D:/quartus/mydesign/exp12/exp12.v Line: 34
+Info (21057): Implemented 5259 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 19 input pins
+    Info (21059): Implemented 42 output pins
+    Info (21060): Implemented 8 bidirectional pins
+    Info (21061): Implemented 5125 logic cells
+    Info (21064): Implemented 65 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 75 warnings
+    Info: Peak virtual memory: 4876 megabytes
+    Info: Processing ended: Wed Dec 25 21:21:33 2019
+    Info: Elapsed time: 00:00:24
+    Info: Total CPU time (on all processors): 00:00:35
+
+

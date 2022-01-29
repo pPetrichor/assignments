@@ -1,0 +1,32 @@
+module lab06_2(clk,cout_l,cout_h);
+input clk;
+reg [7:0] cout;
+output [6:0]cout_l;
+output [6:0]cout_h;
+reg in;
+always @(posedge clk)
+	if(cout == 0) cout <= 1;
+	else
+	begin
+		in <= cout[4]^cout[3]^cout[2]^cout[0];
+		cout <= {in,cout[7:1]};
+	end 
+	case(cout[3:0])
+	0:cout_l <= 7'b1000000;
+	1:cout_l <= 7'b1111001;
+	2:cout_l <= 7'b0100100;
+	3:cout_l <= 7'b0110000;
+	4:cout_l <= 7'b0011001;
+	5:cout_l <= 7'b0010010;
+	6:cout_l <= 7'b0000010;
+	7:cout_l <= 7'b1111000;
+	8:cout_l <= 7'b0000000;
+	9:cout_l <= 7'b0010000;
+	10:cout_l <= 7'b0000100;
+	11:cout_l <= 7'b0000011;
+	12:cout_l <= 7'b1000110;
+	13:cout_l <= 7'b0100001;
+	14:cout_l <= 7'b1111010;
+	15:cout_l <= 7'b0001110;
+	endcase
+endmodule

@@ -1,0 +1,19 @@
+module higher(clk_50,counter_h,counter_l,PS2_l,PS2_h,ASCII_l,ASCII_h,ps2_clk,ps2_data);//1s为一个周期
+input clk_50,ps2_clk,ps2_data;
+integer counter;
+reg [7:0] PS;reg [7:0] ASCII;
+output reg [6:0] counter_h;
+output reg [6:0] counter_l;
+output reg [6:0] PS2_l;
+output reg [6:0] PS2_h;
+output reg [6:0] ASCII_l;
+output reg [6:0] ASCII_h;
+
+reg a,ready,nextdata_n,overflow;
+reg [7:0] data;
+
+initial
+a = 1;	nextdata_n=1;
+end
+
+ps2_keyboard PS2(clk_50,a,ps2_clk,ps2_data,data,ready,nextdata_n,overflow);

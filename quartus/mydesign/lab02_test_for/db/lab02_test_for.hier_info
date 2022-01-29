@@ -1,0 +1,13 @@
+|lab02_test_for
+x[0] => ~NO_FANOUT~
+x[1] => y.DATAA
+x[2] => y.OUTPUTSELECT
+x[2] => y.DATAA
+x[3] => y.OUTPUTSELECT
+x[3] => y.OUTPUTSELECT
+en => y.OUTPUTSELECT
+en => y.OUTPUTSELECT
+y[0] <= y.DB_MAX_OUTPUT_PORT_TYPE
+y[1] <= y.DB_MAX_OUTPUT_PORT_TYPE
+
+

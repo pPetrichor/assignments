@@ -1,0 +1,66 @@
+module lab05_1(clk_50,clk_1,result,led,start,stop,clear);
+	input clk_50,start,stop,clear;
+	reg [25:0]count_clk;
+	output clk_1;
+	reg [3:0]result_h;
+	reg [3:0]result_l;
+	reg [7:0]result;
+	output reg [6:0]result_ones;
+	output reg [6:0]result_tens;
+	output led;
+	result = 0;
+	if(start) begin
+	always @(posedge clk_50) begin
+	if(stop == 0) begin
+	if(count_clk==25000000)
+	begin
+	count_clk <=0;
+	clk_1s <= ~clk_1s;
+	end
+	else
+	count_clk <= count_clk+1;
+	end
+	else result <= result;
+	if(clear) result <= 0;
+	else result <= result;
+	always@(posedge clk_1) begin
+	if(result == 99) begin
+	result <= 0;led <= 0;
+	end
+	else begin
+	result <= result + 1;led <= 0;
+	end
+	end
+	end
+	end
+	else result = 8'b1111111;//表示无效，结束
+	result_h[3] = result[7];result_h[2] = result[6];
+	result_h[1] = result[5];result_h[0] = result[4];
+	result_l[3] = result[3];result_l[2] = result[2];
+	result_l[1] = result[1];result_l[0] = result[0];
+	case(result_h)
+		0: result_tens = 7'b1000000;
+		1: result_tens = 7'b1111001;
+		2: result_tens = 7'b0100100;
+		3: result_tens = 7'b0110000;
+		4: result_tens = 7'b0011001;
+		5: result_tens = 7'b0010010;
+		6: result_tens = 7'b0000010;
+		7: result_tens = 7'b1111000;
+		8: result_tens = 7'b0000000;
+		9: result_tens = 7'b0010000;
+		endcase
+	case(result_l)
+		0: result_ones = 7'b1000000;
+		1: result_ones = 7'b1111001;
+		2: result_ones = 7'b0100100;
+		3: result_ones = 7'b0110000;
+		4: result_ones = 7'b0011001;
+		5: result_ones = 7'b0010010;
+		6: result_ones = 7'b0000010;
+		7: result_ones = 7'b1111000;
+		8: result_ones = 7'b0000000;
+		9: result_ones = 7'b0010000;
+		endcase
+endmodule
+

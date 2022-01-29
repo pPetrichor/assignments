@@ -1,0 +1,9 @@
+vendor_name = ModelSim
+source_file = 1, D:/quarters/mydesign/lab00/lab00.v
+source_file = 1, D:/quarters/mydesign/lab00/db/lab00.cbx.xml
+design_name = lab00
+instance = comp, \F~output , F~output, lab00, 1
+instance = comp, \A~input , A~input, lab00, 1
+instance = comp, \B~input , B~input, lab00, 1
+instance = comp, \F~0 , F~0, lab00, 1
+instance = comp, \~QUARTUS_CREATED_GND~I , ~QUARTUS_CREATED_GND~I, lab00, 1

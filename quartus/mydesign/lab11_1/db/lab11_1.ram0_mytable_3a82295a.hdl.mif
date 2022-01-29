@@ -1,0 +1,41 @@
+-- begin_signature
+-- mytable
+-- end_signature
+WIDTH=6;
+DEPTH=30;
+
+ADDRESS_RADIX=UNS;
+DATA_RADIX=BIN;
+
+CONTENT BEGIN
+	29 :	XXXXXX;
+	28 :	XXXXXX;
+	27 :	XXXXXX;
+	26 :	XXXXXX;
+	25 :	XXXXXX;
+	24 :	XXXXXX;
+	23 :	XXXXXX;
+	22 :	XXXXXX;
+	21 :	XXXXXX;
+	20 :	XXXXXX;
+	19 :	XXXXXX;
+	18 :	XXXXXX;
+	17 :	XXXXXX;
+	16 :	XXXXXX;
+	15 :	XXXXXX;
+	14 :	XXXXXX;
+	13 :	XXXXXX;
+	12 :	XXXXXX;
+	11 :	XXXXXX;
+	10 :	XXXXXX;
+	9 :	XXXXXX;
+	8 :	XXXXXX;
+	7 :	XXXXXX;
+	6 :	XXXXXX;
+	5 :	XXXXXX;
+	4 :	XXXXXX;
+	3 :	XXXXXX;
+	2 :	XXXXXX;
+	1 :	XXXXXX;
+	0 :	000000;
+END;

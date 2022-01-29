@@ -1,0 +1,24 @@
+module mytable(ASCII,clk,vga_clk,h_addr,v_addr,data);
+input [7:0]ASCII;//键盘输入ASCII
+input clk,vga_clk;
+input [9:0] h_addr;
+input [9:0] v_addr;
+reg [11:0] reftable [4095:0];//点阵表
+reg [7:0] mytable [1919:0];//实现一个64*30的自定义字符阵
+integer current_v,current_h;//记录当前输出到哪一行、哪一列
+output reg data;//一位表示黑白
+integer paddr,addr;//paddr = 4*v + h/9,用于查字符表，addr是找到要显示的字符后，该点在该字符中的相对位置
+//addr = v / 16 + 查到字符的首地址 第h/9个值
+integer shang,yushu;//避免计算除以9
+
+initial
+begin
+$readmemh("D:/mydesign/lab11_1/mem.txt", reftable, 0, 4095); 
+current_v = 0,current_h = 0;
+end
+
+always @(posedge vga_clk)//读字符阵，h_addr,v_addr发生变化
+begin
+	
+end
+always @(posedge clk)//键盘写入字符阵

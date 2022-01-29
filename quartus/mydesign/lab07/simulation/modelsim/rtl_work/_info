@@ -1,0 +1,100 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/quartus/mydesign/lab07/simulation/modelsim
+vlab07
+Z1 !s110 1572759067
+!i10b 1
+!s100 E=f3ERQ>i17ka?5F:zEGV0
+IXA8NiVllC:SKhFGnB:D^J3
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1572757863
+8D:/quartus/mydesign/lab07/lab07.v
+FD:/quartus/mydesign/lab07/lab07.v
+L0 6
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+!s108 1572759066.000000
+!s107 D:/quartus/mydesign/lab07/lab07.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/quartus/mydesign/lab07|D:/quartus/mydesign/lab07/lab07.v|
+!i113 1
+Z4 o-vlog01compat -work work
+Z5 !s92 -vlog01compat -work work +incdir+D:/quartus/mydesign/lab07
+Z6 tCvgOpt 0
+vlab07_vlg_tst
+R1
+!i10b 1
+!s100 en3F^_W2113USdIhBI=?00
+IXiSBL0lV`eaB5UQN5TG5o1
+R2
+R0
+w1572758996
+8D:/quartus/mydesign/lab07/simulation/modelsim/lab07.vt
+FD:/quartus/mydesign/lab07/simulation/modelsim/lab07.vt
+L0 28
+R3
+r1
+!s85 0
+31
+Z7 !s108 1572759067.000000
+!s107 D:/quartus/mydesign/lab07/simulation/modelsim/lab07.vt|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/quartus/mydesign/lab07/simulation/modelsim|D:/quartus/mydesign/lab07/simulation/modelsim/lab07.vt|
+!i113 1
+R4
+!s92 -vlog01compat -work work +incdir+D:/quartus/mydesign/lab07/simulation/modelsim
+R6
+vRAM1
+R1
+!i10b 1
+!s100 4C0c^X0J[HkTUUzL05N1c0
+IPT>Y`=YCEFAPnUQ5Pc;2_1
+R2
+R0
+w1572757862
+8D:/quartus/mydesign/lab07/RAM1.v
+FD:/quartus/mydesign/lab07/RAM1.v
+L0 1
+R3
+r1
+!s85 0
+31
+R7
+!s107 D:/quartus/mydesign/lab07/RAM1.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/quartus/mydesign/lab07|D:/quartus/mydesign/lab07/RAM1.v|
+!i113 1
+R4
+R5
+R6
+n@r@a@m1
+vRAM2
+R1
+!i10b 1
+!s100 R5mP?zX>2>[`=TFbmXNK23
+II1dz^:Ck9=n[JU4^f27OD1
+R2
+R0
+w1570525179
+8D:/quartus/mydesign/lab07/RAM2.v
+FD:/quartus/mydesign/lab07/RAM2.v
+L0 4
+R3
+r1
+!s85 0
+31
+R7
+!s107 D:/quartus/mydesign/lab07/RAM2.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/quartus/mydesign/lab07|D:/quartus/mydesign/lab07/RAM2.v|
+!i113 1
+R4
+R5
+R6
+n@r@a@m2

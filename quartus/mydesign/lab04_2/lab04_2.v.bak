@@ -1,0 +1,7 @@
+module lab04_2(
+	input [1:0] clk,
+	input [3:0] SW,
+	output [3:0] LEDR
+);
+mysynchro m1(clk[0],SW[0],LEDR[0],LEDR[1],SW[1]);
+myasynchro m2(clk[1],SW[2],LEDR[2],LEDR[3],SW[3]);

@@ -1,0 +1,2 @@
+Info (10281): Verilog HDL Declaration information at trans.v(10): object "ASCII_l" differs only in case from object "ASCII_L" in the same scope File: D:/quartus/mydesign/lab08_2/trans.v Line: 10
+Info (10281): Verilog HDL Declaration information at trans.v(11): object "ASCII_h" differs only in case from object "ASCII_H" in the same scope File: D:/quartus/mydesign/lab08_2/trans.v Line: 11

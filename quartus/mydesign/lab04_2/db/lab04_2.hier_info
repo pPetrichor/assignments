@@ -1,0 +1,24 @@
+|lab04_2
+clk => clk.IN2
+SW[0] => SW[0].IN1
+SW[1] => SW[1].IN1
+SW[2] => SW[2].IN1
+SW[3] => SW[3].IN1
+LEDR[0] << mysynchro:m1.port2
+LEDR[1] << myasynchro:m2.port2
+
+
+|lab04_2|mysynchro:m1
+clk => out_q~reg0.CLK
+in_d => out_q.DATAA
+out_q <= out_q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clr => out_q.OUTPUTSELECT
+
+
+|lab04_2|myasynchro:m2
+clk => out_q~reg0.CLK
+in_d => out_q~reg0.DATAIN
+out_q <= out_q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clr => out_q~reg0.ACLR
+
+

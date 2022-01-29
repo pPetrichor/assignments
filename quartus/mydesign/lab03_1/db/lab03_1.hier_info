@@ -1,0 +1,36 @@
+|lab03_1
+a[0] => Add0.IN1
+a[0] => Add7.IN2
+a[1] => Add1.IN1
+a[1] => Add9.IN2
+a[2] => Add3.IN1
+a[2] => Add11.IN2
+a[3] => Add5.IN1
+a[3] => overflow.IN1
+a[3] => Add13.IN2
+a[3] => overflow.IN0
+a[3] => overflow.IN1
+b[0] => Add0.IN2
+b[0] => Add7.IN1
+b[1] => Add1.IN2
+b[1] => Add9.IN1
+b[2] => Add3.IN2
+b[2] => Add11.IN1
+b[3] => Add5.IN2
+b[3] => overflow.IN1
+b[3] => Add13.IN1
+cin => result.OUTPUTSELECT
+cin => result.OUTPUTSELECT
+cin => result.OUTPUTSELECT
+cin => result.OUTPUTSELECT
+cin => carry.OUTPUTSELECT
+cin => overflow.OUTPUTSELECT
+carry <= carry.DB_MAX_OUTPUT_PORT_TYPE
+result[0] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[1] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[2] <= result.DB_MAX_OUTPUT_PORT_TYPE
+result[3] <= result.DB_MAX_OUTPUT_PORT_TYPE
+zero <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+overflow <= overflow.DB_MAX_OUTPUT_PORT_TYPE
+
+

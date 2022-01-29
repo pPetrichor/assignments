@@ -1,0 +1,1 @@
+Warning (10268): Verilog HDL information at I2C_Audio_Config.v(58): always construct contains both blocking and non-blocking assignments File: D:/quartus/mydesign/lab10_1/I2C_Audio_Config.v Line: 58

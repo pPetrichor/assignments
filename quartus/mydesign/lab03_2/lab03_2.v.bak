@@ -1,0 +1,31 @@
+module lab03_2(cin,a,b,result,carry,overflow,zero);
+	input [2:0]cin;
+	input [3:0]a,[3:0]b;
+	output reg [3:0]result;
+	output reg carry,overflow,zero;
+	always @(cin or a or b) begin
+		overflow = 0;
+		carry = 0;
+		case(cin)
+			0:begin
+			
+			end
+			1:begin
+			
+			end
+			2:result = ~a;
+			3:result = a & b;
+			4:result = a | b;
+			5:result = a ^ b;
+			6:begin
+				if(a[3] > b[3]) result = 0;
+				else if(a[3] < b[3]) result = 1;
+				else if(a[3] == 0) result = (a > b);
+				else result = (a < b);
+			end
+			7：result = (a == b)	
+			default:result = 0;//不会出现 
+		endcase
+		zero = (result == 0);
+	end
+endmodule 

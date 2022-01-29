@@ -1,0 +1,55 @@
+module vga_out(shang,colordata,valid,ascii,v_addr,h_addr,vga_clk,color,read_addr,q,vga_data)
+output reg[5:0] shang;
+input [23:0]colordata;
+output [2:0]color;
+reg[8:0] offset[63:0];
+input valid;
+input [7:0] ascii;
+input [9:0] h_addr;
+input [9:0] v_addr;
+input [11:0] q;
+input vga_clk;
+output reg [12:0]read_addr;
+output reg [23:0]vga_data;
+integer yushu;//避免计算除以9
+reg[9:0] cnt;
+wire[4:0] speed;
+assign speed = (ascii[1:0] + 1) << 2;
+
+always @(posedge vga_clk)
+begin
+//调整下滑：改变offset
+	cnt = cnt + 1;
+	if(ascii != 0 && cnt%speed == 0) 
+		offset[shang] = offset[shang] + 1;//更改offset，随机速度（与显示字母相关）
+	
+//读取信息并显示
+	if(h_addr < 576 && valid)
+	begin
+		if(v_addr - offset[shang] >= 16) vga_data = 24'h000000;//黑
+		else//该处应显示字符
+		begin
+			if(ascii == 0) vga_data = 24'h000000;//黑
+			else
+			begin
+			
+			read_addr = (ascii << 4) + (v_addr - ((v_addr >> 4) << 4));
+			data = q[yushu-1];
+			color = ascii[2:0];
+			end
+		end
+		if(data) vga_data = colordata;
+		else vga_data = 24'h000000;//黑
+		if(yushu == 8) begin shang = shang + 1; yushu = 0;end
+	else yushu = yushu + 1;
+	if(shang == 64) shang = 0;
+	else shang = shang;
+	end
+	else vga_data = 24'h000000;
+	end
+	else
+	begin
+	//分数等显示
+	vga_data = 24'hFFFFFF;//
+	end
+end

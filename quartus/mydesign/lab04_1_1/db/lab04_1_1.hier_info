@@ -1,0 +1,11 @@
+|lab04_1_1
+clk => out_q1~reg0.CLK
+clk => out_q2~reg0.CLK
+in_d => out_q2.DATAA
+in_d => out_q1~reg0.DATAIN
+out_q1 <= out_q1~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out_q2 <= out_q2~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clr => out_q2.OUTPUTSELECT
+clr => out_q1~reg0.ACLR
+
+

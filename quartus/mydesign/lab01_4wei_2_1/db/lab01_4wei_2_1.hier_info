@@ -1,0 +1,17 @@
+|lab01_4wei_2_1
+x0[0] => Mux1.IN0
+x0[1] => Mux0.IN0
+x1[0] => Mux1.IN1
+x1[1] => Mux0.IN1
+x2[0] => Mux1.IN2
+x2[1] => Mux0.IN2
+x3[0] => Mux1.IN3
+x3[1] => Mux0.IN3
+y[0] => Mux0.IN5
+y[0] => Mux1.IN5
+y[1] => Mux0.IN4
+y[1] => Mux1.IN4
+f[0] << Mux1.DB_MAX_OUTPUT_PORT_TYPE
+f[1] << Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+

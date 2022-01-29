@@ -1,0 +1,6 @@
+
+State Machine - |exp12|keyboard_scan:K2S|state
+Name state.00 state.w1 state.f0 
+state.00 0 0 0 
+state.f0 1 0 1 
+state.w1 1 1 0 

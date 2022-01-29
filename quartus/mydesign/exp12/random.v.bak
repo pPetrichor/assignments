@@ -1,0 +1,36 @@
+module random(clk_50,X,ASCII);
+input clk_50;
+input if_write;
+reg clk_s;
+output reg X[5:0];
+output reg ASCII[7:0];
+integer count;
+reg[7:0] num_ASCII;
+reg in;
+always @(posedge clk_50)
+		begin
+			if(count==12500000)
+				begin
+				count = 0;
+				clk_s = ~clk_s;
+				end
+			else
+				count = count + 1;
+		end
+
+always @(posedge clk_s)
+begin
+	if(num_ASCII == 0) num_ASCII = 1;
+	else
+	begin
+		in = (((num_ASCII[4]^num_ASCII[3])^num_ASCII[2])^num_ASCII[0]);
+		num_ASCII = {in,num_ASCII[7:1]};
+	end
+	ASCII = 2'h41 + num_ASCII % 26;//随机生成ASCII
+	if(X == 0) X = 1;
+	else
+	begin
+		in = (((X[4]^X[3])^X[2])^X[0]);
+		X = {in,X[7:1]};X = X%70;//应改为0-63的循环方程，不必取余
+	end//随机生成X
+end

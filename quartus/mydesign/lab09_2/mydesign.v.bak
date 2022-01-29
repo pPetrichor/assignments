@@ -1,0 +1,32 @@
+module mydesign(reset,clk,vga_data,h_addr,v_addr,q,sw1,sw2);
+output reg [23:0]vga_data;
+input [9:0] h_addr;
+input [9:0] v_addr;
+input clk,reset,sw1,sw2;
+input [11:0] q;
+
+integer pv_addr,ph_addr,count,v_v,v_h;
+initial
+begin
+pv_addr = 0;ph_addr = 0;count = 0;v_v= 1;v_h = 1;
+end
+
+always @(posedge reset or posedge clk)
+begin
+	if(reset) vga_data = 24'h000000;
+	else 
+	begin 
+		if((v_addr >= pv_addr)&&(v_addr < pv_addr + 100)&&(h_addr >= ph_addr)&&(h_addr < ph_addr + 100))
+		begin
+		vga_data = {q[11:8],4'b0000,q[7:4],4'b0000,q[3:0],4'b0000};
+		end
+		else
+		vga_data = 24'h000000;	
+	end
+	if(count == 2500000)
+	begin
+	count = 0;
+	if(pv_addr == 0) v_h = -1;
+	end
+end
+endmodule

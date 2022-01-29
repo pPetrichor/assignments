@@ -1,0 +1,209 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "led",
+					"strict" : false
+				},
+				{
+					"name" : "second_l[0]",
+					"strict" : false
+				},
+				{
+					"name" : "second_l[1]",
+					"strict" : false
+				},
+				{
+					"name" : "second_l[2]",
+					"strict" : false
+				},
+				{
+					"name" : "second_l[3]",
+					"strict" : false
+				},
+				{
+					"name" : "second_l[4]",
+					"strict" : false
+				},
+				{
+					"name" : "second_l[5]",
+					"strict" : false
+				},
+				{
+					"name" : "second_l[6]",
+					"strict" : false
+				},
+				{
+					"name" : "second_h[0]",
+					"strict" : false
+				},
+				{
+					"name" : "second_h[1]",
+					"strict" : false
+				},
+				{
+					"name" : "second_h[2]",
+					"strict" : false
+				},
+				{
+					"name" : "second_h[3]",
+					"strict" : false
+				},
+				{
+					"name" : "second_h[4]",
+					"strict" : false
+				},
+				{
+					"name" : "second_h[5]",
+					"strict" : false
+				},
+				{
+					"name" : "second_h[6]",
+					"strict" : false
+				},
+				{
+					"name" : "minute_l[0]",
+					"strict" : false
+				},
+				{
+					"name" : "minute_l[1]",
+					"strict" : false
+				},
+				{
+					"name" : "minute_l[2]",
+					"strict" : false
+				},
+				{
+					"name" : "minute_l[3]",
+					"strict" : false
+				},
+				{
+					"name" : "minute_l[4]",
+					"strict" : false
+				},
+				{
+					"name" : "minute_l[5]",
+					"strict" : false
+				},
+				{
+					"name" : "minute_l[6]",
+					"strict" : false
+				},
+				{
+					"name" : "minute_h[0]",
+					"strict" : false
+				},
+				{
+					"name" : "minute_h[1]",
+					"strict" : false
+				},
+				{
+					"name" : "minute_h[2]",
+					"strict" : false
+				},
+				{
+					"name" : "minute_h[3]",
+					"strict" : false
+				},
+				{
+					"name" : "minute_h[4]",
+					"strict" : false
+				},
+				{
+					"name" : "minute_h[5]",
+					"strict" : false
+				},
+				{
+					"name" : "minute_h[6]",
+					"strict" : false
+				},
+				{
+					"name" : "hour_l[0]",
+					"strict" : false
+				},
+				{
+					"name" : "hour_l[1]",
+					"strict" : false
+				},
+				{
+					"name" : "hour_l[2]",
+					"strict" : false
+				},
+				{
+					"name" : "hour_l[3]",
+					"strict" : false
+				},
+				{
+					"name" : "hour_l[4]",
+					"strict" : false
+				},
+				{
+					"name" : "hour_l[5]",
+					"strict" : false
+				},
+				{
+					"name" : "hour_l[6]",
+					"strict" : false
+				},
+				{
+					"name" : "hour_h[0]",
+					"strict" : false
+				},
+				{
+					"name" : "hour_h[1]",
+					"strict" : false
+				},
+				{
+					"name" : "hour_h[2]",
+					"strict" : false
+				},
+				{
+					"name" : "hour_h[3]",
+					"strict" : false
+				},
+				{
+					"name" : "hour_h[4]",
+					"strict" : false
+				},
+				{
+					"name" : "hour_h[5]",
+					"strict" : false
+				},
+				{
+					"name" : "hour_h[6]",
+					"strict" : false
+				},
+				{
+					"name" : "stop_alarm",
+					"strict" : false
+				},
+				{
+					"name" : "set_time",
+					"strict" : false
+				},
+				{
+					"name" : "set_alarm",
+					"strict" : false
+				},
+				{
+					"name" : "second_counter",
+					"strict" : false
+				},
+				{
+					"name" : "set_botton_s",
+					"strict" : false
+				},
+				{
+					"name" : "set_botton_h",
+					"strict" : false
+				},
+				{
+					"name" : "clk_50",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

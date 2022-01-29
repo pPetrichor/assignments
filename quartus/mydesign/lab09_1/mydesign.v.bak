@@ -1,0 +1,9 @@
+module mydesign(reset,vga_clk,vga_data,h_addr,v_addr);
+output reg [23:0]vga_data;
+input [9:0] h_addr;
+input [9:0] v_addr;
+input vga_clk,reset;
+
+always @(posedge reset or posedge pclk)
+	vga_data =  24'hFF0000;
+endmodule

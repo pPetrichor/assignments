@@ -1,0 +1,14 @@
+module scan_HEX(input clk, input cap, input shift, input [7:0] sc,
+	output	[7:0]ascii);
+
+	reg [7:0]ascii_small [255:0];
+	reg [7:0]ascii_big [255:0];
+	
+	initial
+	begin
+		$readmemh("./ascii_small.txt", ascii_small, 0, 255);
+		$readmemh("./ascii_big.txt", ascii_big, 0, 255);
+	end
+	
+	assign ascii = (cap ^ shift) ? ascii_big[sc] : ascii_small[sc];
+endmodule 

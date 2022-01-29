@@ -1,0 +1,7 @@
+|lab04_2_
+clk => out_q~reg0.CLK
+in_d => out_q~reg0.DATAIN
+out_q << out_q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clr => out_q~reg0.ACLR
+
+

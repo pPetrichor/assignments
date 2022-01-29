@@ -1,0 +1,11 @@
+vendor_name = ModelSim
+source_file = 1, D:/quartus/mydesign/lab04_2_/lab04_2_.v
+source_file = 1, D:/quartus/mydesign/lab04_2_/db/lab04_2_.cbx.xml
+design_name = lab04_2_
+instance = comp, \out_q~output , out_q~output, lab04_2_, 1
+instance = comp, \clk~input , clk~input, lab04_2_, 1
+instance = comp, \in_d~input , in_d~input, lab04_2_, 1
+instance = comp, \out_q~reg0feeder , out_q~reg0feeder, lab04_2_, 1
+instance = comp, \clr~input , clr~input, lab04_2_, 1
+instance = comp, \out_q~reg0 , out_q~reg0, lab04_2_, 1
+instance = comp, \~QUARTUS_CREATED_GND~I , ~QUARTUS_CREATED_GND~I, lab04_2_, 1

@@ -1,0 +1,54 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/quarters/mydesign/lab00/simulation/modelsim
+vlab00
+Z1 !s110 1567848802
+!i10b 1
+!s100 l^l8jn<TU5BM4VeBTJ1oU0
+Ik]]@dn]ig9fiPJcGgQnQD2
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1567741238
+8D:/quarters/mydesign/lab00/lab00.v
+FD:/quarters/mydesign/lab00/lab00.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1567848802.000000
+!s107 D:/quarters/mydesign/lab00/lab00.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/quarters/mydesign/lab00|D:/quarters/mydesign/lab00/lab00.v|
+!i113 1
+Z5 o-vlog01compat -work work
+!s92 -vlog01compat -work work +incdir+D:/quarters/mydesign/lab00
+Z6 tCvgOpt 0
+vlab00_vlg_tst
+R1
+!i10b 1
+!s100 F[O4kR9O_KI4clNG38zIz0
+IoW`H4>b7Q^:0cO6hiB33Y1
+R2
+R0
+w1567742331
+8D:/quarters/mydesign/lab00/simulation/modelsim/lab00.vt
+FD:/quarters/mydesign/lab00/simulation/modelsim/lab00.vt
+L0 28
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/quarters/mydesign/lab00/simulation/modelsim/lab00.vt|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/quarters/mydesign/lab00/simulation/modelsim|D:/quarters/mydesign/lab00/simulation/modelsim/lab00.vt|
+!i113 1
+R5
+!s92 -vlog01compat -work work +incdir+D:/quarters/mydesign/lab00/simulation/modelsim
+R6

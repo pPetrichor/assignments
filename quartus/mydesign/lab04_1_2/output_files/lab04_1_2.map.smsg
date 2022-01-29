@@ -1,0 +1,1 @@
+Warning (10268): Verilog HDL information at lab04_1_2.v(10): always construct contains both blocking and non-blocking assignments File: D:/quartus/mydesign/lab04_1_2/lab04_1_2.v Line: 10
