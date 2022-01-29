@@ -1,0 +1,7 @@
+﻿  源.cpp
+c:\users\njuwhl2019hp\算法\test3\b\test3_b\test3_b\源.cpp(17): warning C4018: “<”: 有符号/无符号不匹配
+c:\users\njuwhl2019hp\算法\test3\b\test3_b\test3_b\源.cpp(29): warning C4244: “初始化”: 从“__int64”转换到“unsigned int”，可能丢失数据
+c:\users\njuwhl2019hp\算法\test3\b\test3_b\test3_b\源.cpp(30): warning C4244: “初始化”: 从“__int64”转换到“unsigned int”，可能丢失数据
+c:\users\njuwhl2019hp\算法\test3\b\test3_b\test3_b\源.cpp(68): warning C4244: “初始化”: 从“__int64”转换到“unsigned int”，可能丢失数据
+c:\users\njuwhl2019hp\算法\test3\b\test3_b\test3_b\源.cpp(75): warning C4244: “初始化”: 从“__int64”转换到“int”，可能丢失数据
+  test3_b.vcxproj -> C:\Users\njuwhl2019hp\算法\test3\b\test3_b\Debug\test3_b.exe

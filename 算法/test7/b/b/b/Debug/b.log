@@ -1,0 +1,4 @@
+﻿  源.cpp
+c:\users\njuwhl2019hp\算法\test7\b\b\b\源.cpp(151): warning C4018: “<”: 有符号/无符号不匹配
+c:\users\njuwhl2019hp\算法\test7\b\b\b\源.cpp(166): warning C4018: “<”: 有符号/无符号不匹配
+  b.vcxproj -> C:\Users\njuwhl2019hp\算法\test7\b\b\Debug\b.exe

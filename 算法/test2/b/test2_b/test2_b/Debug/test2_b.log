@@ -1,0 +1,6 @@
+﻿  源.cpp
+c:\users\njuwhl2019hp\算法\test2\b\test2_b\test2_b\源.cpp(25): warning C4244: “初始化”: 从“__int64”转换到“unsigned int”，可能丢失数据
+c:\users\njuwhl2019hp\算法\test2\b\test2_b\test2_b\源.cpp(26): warning C4244: “初始化”: 从“__int64”转换到“unsigned int”，可能丢失数据
+c:\users\njuwhl2019hp\算法\test2\b\test2_b\test2_b\源.cpp(62): warning C4244: “初始化”: 从“__int64”转换到“unsigned int”，可能丢失数据
+c:\users\njuwhl2019hp\算法\test2\b\test2_b\test2_b\源.cpp(19): warning C4715: “mystring::operator>”: 不是所有的控件路径都返回值
+  test2_b.vcxproj -> C:\Users\njuwhl2019hp\算法\test2\b\test2_b\Debug\test2_b.exe
